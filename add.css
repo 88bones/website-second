@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    font-family:
+    background-color: rgb(207, 207, 207);
+}
+
+.logo{
+    display: flex;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.top-bar{
+    background-color: whitesmoke;
+    display: flex;
+    position: sticky;
+    justify-content: center;    
+    top: 0px;
+    box-shadow: 2px 2px 16px grey;
+}
+
+.menu-bar{
+    display: flex;
+    width: 95%;
+    justify-content:space-between;
+    padding: 5px;
+}
+
+h1{
+    font-weight:900;
+    color: black;
+}
+
+.menu-items{
+    padding: 5px;
+    display: flex;
+    width: 30%;
+    justify-content:space-around;
+    font-size: 14px;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(57, 57, 57);
+}
+ 
+a:hover{
+    color: black;
+}
+
+button{
+    background-color: black;
+    border:
+    font-size: 16px;
+    padding: 5px;
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 6px;
+}
+
+form{
+    background-color: aqua;
+    padding: 20px;
+}
+
+.addbikes{
+    background-color: red;
+    margin: 0px 400px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid hsl(246, 25%, 77%);
+
+

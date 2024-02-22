@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Information System</title>
+
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="menu-bar">
+            <p class="logo">2-Wheelers IS</p>
+            <div class="menu-items">
+                <a href="">Home</a>
+                <a href="">Compare</a>
+                <a href="">Bikes</a>
+                <a href="">Calculate</a>
+                <a href="add.php">Add Bikes</a>
+            </div>
+            <div><button class="login">Login/Register</button></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="search">
+            <form id="searchbar" name="searchbar" action="">
+                <div class="select-box">
+                    <p id="filter-tag">Search the right bike</p>
+                    <input type="text" id="search" placeholder="eg: R15M, MT-15" />
+                    <div class="search-btn">
+                        <button id="search-filter">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="compare-container">
+        <div class="compare-box">
+            <div class="compare-first">
+                <select name="bikes" id="bikes" placeholder="sss">
+                    <option value="" selected>Select Brand</option>
+                    <option value="yamaha">Yamaha</option>
+                    <option value="honda">Honda</option>
+                    <option value="bajaj">Bajaj</option>
+                    <option value="ktm">KTM</option>
+                    <option value="royal-enfield">Royal Enfield</option>
+                </select>
+            </div>
+
+            <div class="compare-second">
+                <select name="bikes" id="bikes" placeholder="sss">
+                    <option value="" selected>Select Brand</option>
+                    <option value="yamaha">Yamaha</option>
+                    <option value="honda">Honda</option>
+                    <option value="bajaj">Bajaj</option>
+                    <option value="ktm">KTM</option>
+                    <option value="royal-enfield">Royal Enfield</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
