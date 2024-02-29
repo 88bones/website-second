@@ -57,7 +57,7 @@ a:hover{
     color: black;
 }
 
-button{
+.login{
     background-color: black;
     border:
     font-size: 16px;
@@ -69,23 +69,32 @@ button{
 
 
 .container{
-    background: url(../images/banner.jpg);
+    background: url(/images/wallpaperflare.com_wallpaper.jpg);
     height: 350px;
-    background-position: center;
+    background-size:cover;
+    background-position-y:-100px ;
+    background-repeat: no-repeat;
     display: flex;
     padding: 20px;
     justify-content:center;
 }
 
 .search{
+   
     width: 40%;
     padding: 12px;
     display: flex;
     justify-content: center;
-    text-align: center;
     /*border-radius: 6px;
     box-shadow: 2px 2px 16px grey;
 */}
+
+#searchbar{
+  
+    width: 70%;
+    height: 100px;
+    margin-top: 110px;
+}
 
 #filter-tag {
     font-size: 24px;
@@ -94,15 +103,17 @@ button{
 }
 
 .select-box{
-
     display: flex;
-    flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 100%;
 }
 
-
+#search-filter{
+    background-color: black;
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+    padding: 10px;
+}
 
 select{
     width: 100%;
@@ -112,22 +123,9 @@ select{
     border-radius: 6px;
 }
 
-.search-btn {
-    padding: 10px 0px;
-}
-
-#search-filter {
-    background-color: black;
-    padding: 10px;
-    border-radius: 6px;
-    width: 100%;
-    font-weight: bold;
-    color: whitesmoke;
-    font-size: 16px;
-}
 
 
-.compare-container{
+/*.compare-container{
     margin-top  :5px;
     background-color: slateblue;
     justify-content: center;
@@ -149,12 +147,50 @@ select{
 .compare-second{
     background-color: pink;
     width: 25%;
-}
+}*/
 
 
 input[type=text] {
-    width: 100%;
+    width: 90%;
     padding: 10px;
-    border-radius: 6px;
+    border-radius: 10px 0px 0px 10px;
     border: 1px solid hsl(246, 25%, 77%);
+}
+
+.functiontag{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.function-container{
+    display: flex;
+    justify-content: center;
+}
+
+
+.funtion-item{
+    width: 50%;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+}
+
+
+ul{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+li{
+    padding: 40px;
+    border: 0px solid hsl(0, 0%, 31%);
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+}
+
+li:hover{
+    box-shadow: 2px 2px 16px grey; ;
 }
