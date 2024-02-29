@@ -69,7 +69,7 @@ a:hover{
 
 
 .container{
-    background: url(/images/wallpaperflare.com_wallpaper.jpg);
+    background: url(../website-second/images/wallpaperflare.com_wallpaper.jpg);
     height: 350px;
     background-size:cover;
     background-position-y:-100px ;
