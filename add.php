@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Bikes</title>
     <link rel="stylesheet" href="add.css">
 </head>
 
@@ -14,7 +14,7 @@
             <p class="logo">2-Wheelers IS</p>
             <div class="menu-items">
                 <a href="">Home</a>
-                <a href="">Compare</a>
+                <a href="compare.php">Compare</a>
                 <a href="">Bikes</a>
                 <a href="">Calculate</a>
                 <a href="add.php">Add Bikes</a>
@@ -22,7 +22,8 @@
             <div><button class="login">Login/Register</button></div>
         </div>
     </div>
-    <form action="" method="POST" enctype="multipart/form-data">
+    
+    
         <div class="addbikes">
             <div class="brand">
                 <label for="BRAND">Brand</label><br>
@@ -83,7 +84,7 @@
         $price = $_POST['price'];
 
         $result = mysqli_query($conn, "INSERT INTO bikes(bikeid, brand, bname, btype, enginecc, price, image) 
-                VALUES ('1','$brand','$bname','$btype','$cc','$price','')");
+                VALUES ('','$brand','$bname','$btype','$cc','$price','')");
     }
     ?>
 </body>
