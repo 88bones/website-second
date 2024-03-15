@@ -9,35 +9,101 @@
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="menu-bar">
-            <p class="logo">2-Wheelers IS</p>
-            <div class="menu-items">
-                <a href="home.html">Home</a>
-                <a href="compare.php">Compare</a>
-                <a href="">Bikes</a>
-                <a href="calculation.html">Calculate</a>
-                <a href="add.php">Add Bikes</a>
-            </div>
-            <div><button class="login">Login/Register</button></div>
-        </div>
-    </div>
+    <?php
+    include 'menu.php';
+    ?>
 
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="compare-container">
             <div class="compare-box">
                 <h2 id="compare-header">Compare bikes</h2>
 
-                <div class="bike1">ss==
-                    <select id="bike1">
-                        <option value="bike_id_1">Bike 1</option>
-                        <!-- Add more options dynamically from database -->
-                    </select>
+
+                <div class="comparing-menu">
+                    <div class="comparing-items">
+                        <div class="bike1">
+
+                            <select id="bike-select1">
+                                <option value="">Select a bike.</option>
+                                <?php
+                                include 'connection.php';
+                                $sql = "SELECT bname FROM bikes";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    // Output data of each row
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["bname"] . "'>" . $row["bname"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No items found";
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+
+                        <div class="bike1">
+                            <select id="bike-select2">
+                                <option value="">Select a bike</option>
+                                <?php
+                                include 'connection.php';
+                                $sql = "SELECT bname FROM bikes";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    // Output data of each row
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<option value='" . $row["bname"] . "'>" . $row["bname"] . "</option>";
+                                    }
+                                } else {
+                                    echo "No items found";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit">Compare</button>
                 </div>
-                
-                <div class="bike2"></div>
             </div>
         </div>
+
+        <div class="table-container">
+            <div class="table-box">
+                <?php
+                include 'connection.php';
+                $selected_bike = isset($_POST['bname']) ? $_POST['POST']['bname'] : '';  // Corrected typo
+
+                $sql = "SELECT * FROM bikes WHERE bname = '$selected_bike'";
+                $row =mysqli_query($conn,$sql);
+
+                echo'
+                <body>
+                    <div class="data">
+                    <table border=0 px solid cellspacing=1>
+                    <tr>
+                    <th>Brand</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Engine</th>
+                    <th>Price</th>
+                    </tr>
+                    </div>
+                    </body>
+                    ';
+                while($result=mysqli_fetch_assoc($row)){
+                    echo '<tr>
+                    <td>'.$result['bname'].'</td>';
+                }
+                echo '</table>';
+    
+                
+
+                ?>
+            </div>
+        </div>
+
+    </form>
+    <script src="script.js"></script>
+
 </body>
 
 </html>

@@ -9,19 +9,9 @@
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="menu-bar">
-            <p class="logo">2-Wheelers IS</p>
-            <div class="menu-items">
-                <a href="">Home</a>
-                <a href="compare.php">Compare</a>
-                <a href="">Bikes</a>
-                <a href="">Calculate</a>
-                <a href="add.php">Add Bikes</a>
-            </div>
-            <div><button class="login">Login/Register</button></div>
-        </div>
-    </div>
+<?php
+        include 'menu.php';
+    ?>
     
     
         <div class="addbikes">
