@@ -13,7 +13,7 @@
         include 'menu.php';
     ?>
     
-    
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="addbikes">
             <div class="brand">
                 <label for="BRAND">Brand</label><br>

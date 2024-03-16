@@ -1,0 +1,73 @@
+<?php
+include 'connection.php';
+
+$selected_bike = isset($_POST['selected_bike']) ? $_POST['selected_bike'] : '';
+
+if ($selected_bike) {
+    $sql = "SELECT * FROM bikes WHERE bname = '$selected_bike'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows === 1) {
+        $bike_details = $result->fetch_assoc();
+
+        $html = "<table>";
+        $html .= "<tr>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Type</th> 
+      <th>Engine</th>
+      <th>Price</th>
+    </tr>";
+
+        $html .= "<tr>
+      <td>" . $bike_details['brand'] . "</td>
+      <td>" . $bike_details['bname'] . "</td>
+      <td>" . $bike_details['btype'] . "</td>
+      <td>" . $bike_details['enginecc'] . "</td>
+      <td>" . $bike_details['price'] . "</td>
+    
+    </tr>";
+
+        $html .= "</table>";
+
+        echo $html;
+    } else {
+        echo "No bike found with name: $selected_bike";
+    }
+}
+
+$selected_bike2 = isset($_POST['selected_bike2']) ? $_POST['selected_bike2'] : '';
+if ($selected_bike2) {
+    $sql2 = "SELECT * FROM bikes WHERE bname = '$selected_bike2'";
+    $result2 = $conn->query($sql2);
+
+    if ($result2->num_rows === 1) {
+        $bike_details2 = $result2->fetch_assoc();
+
+        $html2 = "<table>";
+        $html2.= "<tr>
+      <th>Brand</th>
+      <th>Name</th>
+      <th>Type</th> 
+      <th>Engine</th>
+      <th>Price</th>
+    </tr>";
+
+        $html2 .= "<tr>
+      <td>" . $bike_details2['brand'] . "</td>
+      <td>" . $bike_details2['bname'] . "</td>
+      <td>" . $bike_details2['btype'] . "</td>
+      <td>" . $bike_details2['enginecc'] . "</td>
+      <td>" . $bike_details2['price'] . "</td>
+    
+    </tr>";
+
+        $html2 .= "</table>";
+
+        echo $html2;
+    } else {
+        echo "No bike found with name: $selected_bike2";
+    }
+}
+
+
