@@ -1,4 +1,59 @@
-.compare-big-container{
-    background-color: teal;
+.compare-header-container{
+    /*background-color: red; */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
+.compare-header{
+    /*background-color: blue;*/
+    text-align: center;
+    padding: 5px;
+    width: 70%;
+}
+
+.compare-box-container{
+   /* background-color: greenyellow;*/
+    padding: 10px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;    
+}
+
+.compare-box{
+    /*ackground-color: yellow;*/
+    width: 70%;
+}
+
+.compare-items{
+    /*background-color: aquamarine;*/
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.bike-table-container{
+    /*background-color: skyblue;*/
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.bike-table{
+    /*background-color: fuchsia;*/
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+select{
+    background-color: yellow;
+    padding: 10px;
+    border-radius:10px;
+    width: 250px;
+}
+
+.compare-bigg-box{
+    box-shadow: 2px -2px 16px grey;
+}

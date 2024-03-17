@@ -1,5 +1,7 @@
 <?php
 include 'connection.php';
+$stylesheet_url = "get_bike_details.css";
+        	echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
 
 $selected_bike = isset($_POST['selected_bike']) ? $_POST['selected_bike'] : '';
 
@@ -10,18 +12,45 @@ if ($selected_bike) {
     if ($result->num_rows === 1) {
         $bike_details = $result->fetch_assoc();
 
-        $html = "<table>";
-        $html .= "<tr>
-      <th>Brand</th>
+        echo '<body>
+          <div class="data">
+            <table border=0px solid cellspacing=5px>
+              <tr>
+                <th>Name</th>
+                  <td>'.$bike_details['bname'].'</td>
+                </tr>
+                <tr>
+                <th>Brand</th>
+                  <td>'.$bike_details['brand'].'</td>
+                </tr>
+                <tr>
+                <th>Type</th> 
+                 <td>'.$bike_details['btype'].'</td>
+                </tr>
+                <th>Engine</th>
+                  <td>'.$bike_details['enginecc'].'</td>
+                </tr>
+                <tr>
+                <th>Price</th>
+                  <td>'.$bike_details['price'].'</td>
+                </tr>
+              </div>
+              </body>';
+        }}
+
+       /* $html = "<table>";
+        $html .= "<thead> <tr>
       <th>Name</th>
+      <th>Brand</th>
       <th>Type</th> 
       <th>Engine</th>
       <th>Price</th>
     </tr>";
+   
 
-        $html .= "<tr>
-      <td>" . $bike_details['brand'] . "</td>
+      $html .= "<tr>
       <td>" . $bike_details['bname'] . "</td>
+      <td>" . $bike_details['brand'] . "</td>
       <td>" . $bike_details['btype'] . "</td>
       <td>" . $bike_details['enginecc'] . "</td>
       <td>" . $bike_details['price'] . "</td>
@@ -36,7 +65,7 @@ if ($selected_bike) {
     }
 }
 
-$selected_bike2 = isset($_POST['selected_bike2']) ? $_POST['selected_bike2'] : '';
+/*$selected_bike2 = isset($_POST['selected_bike2']) ? $_POST['selected_bike2'] : '';
 if ($selected_bike2) {
     $sql2 = "SELECT * FROM bikes WHERE bname = '$selected_bike2'";
     $result2 = $conn->query($sql2);
@@ -68,6 +97,6 @@ if ($selected_bike2) {
     } else {
         echo "No bike found with name: $selected_bike2";
     }
-}
+}*/
 
 

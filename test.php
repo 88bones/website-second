@@ -15,54 +15,29 @@
   include 'menu.php';
   ?>
 
-  <form action="" method="POST" enctype="multipart/form-data">
-    <select id="bike-select1" name="bike-select1">
-      <option value="">Select a bike.</option>
-      <?php
-      include 'connection.php';
-      $sql = "SELECT bname FROM bikes";
-      $result = $conn->query($sql);
-      if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          echo "<option value='" . $row["bname"] . "'>" . $row["bname"] . "</option>";
-        }
-      } else {
-        echo "No items found";
-      }
-      ?>
-    </select>
-
-
-    
-    <input type="submit" name="submit" style="display: none;">  
-</form>
-
-  <div id="bike-details"></div>  <script>
-    $(document).ready(function() {
-      $("#bike-select1").change(function() {  // Trigger on selection change
-        var selectedBike = $(this).val();
-
-        $.ajax({
-          url: "get_bike_details.php",
-          method: "POST",
-          data: { selected_bike: selectedBike },
-          success: function(response) {
-            $("#bike-details").html(response);
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-            console.error("Error:", textStatus, errorThrown);
+  <div class="bike1">
+    <form action="" method="POST" enctype="multipart/form-data">
+      <select id="bike-select1" name="bike-select1">
+        <option value="">Select a bike.</option>
+        <?php
+        include 'connection.php';
+        $sql = "SELECT bname FROM bikes";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            echo "<option value='" . $row["bname"] . "'>" . $row["bname"] . "</option>";
           }
-        });
-      });
-    });
-  </script>
-  <!--dobt change ABOVE code-->
+        } else {
+          echo "No items found";
+        }
+        ?>
+      </select>
+      <input type="submit" name="submit" style="display: none;">
+    </form>
 
-
-
-  <!--bike select 2-->
-
-<form action="" method="POST" enctype="multipart/form-data">
+     <!--bike select 2-->
+<div class="bike2">
+  <form action="" method="POST" enctype="multipart/form-data">
     <select id="bike-select2" name="bike-select2">
       <option value="">Select a bike.</option>
       <?php
@@ -78,17 +53,49 @@
       }
       ?>
     </select>
-    <input type="submit" name="submit" style="display: none;">  
-</form>
-<div id="bike-details2"></div>  <script>
+    <input type="submit" name="submit" style="display: none;">
+  </form>
+
+    <div id="bike-details"></div>
+    <script>
+      $(document).ready(function() {
+        $("#bike-select1").change(function() { // Trigger on selection change
+          var selectedBike = $(this).val();
+
+          $.ajax({
+            url: "get_bike_details.php",
+            method: "POST",
+            data: {
+              selected_bike: selectedBike
+            },
+            success: function(response) {
+              $("#bike-details").html(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.error("Error:", textStatus, errorThrown);
+            }
+          });
+        });
+      });
+    </script>
+  </div>
+  <!--dobt change ABOVE code-->
+
+
+
+ 
+  <div id="bike-details2"></div>
+  <script>
     $(document).ready(function() {
-      $("#bike-select2").change(function() {  // Trigger on selection change
+      $("#bike-select2").change(function() { // Trigger on selection change
         var selectedBike2 = $(this).val();
 
         $.ajax({
           url: "get_bike_details.php",
           method: "POST",
-          data: { selected_bike: selectedBike2 },
+          data: {
+            selected_bike: selectedBike2
+          },
           success: function(response2) {
             $("#bike-details2").html(response2);
           },
@@ -99,6 +106,8 @@
       });
     });
   </script>
+
+</div>
 
 
 
