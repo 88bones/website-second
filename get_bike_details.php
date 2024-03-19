@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-$stylesheet_url = "get_bike_details.css";
+$stylesheet_url = "get_bike_details.css?v=<?php echo time(); ?>";
         	echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
 
 $selected_bike = isset($_POST['selected_bike']) ? $_POST['selected_bike'] : '';
@@ -15,6 +15,7 @@ if ($selected_bike) {
         echo '<body>
           <div class="data">
             <table border=0px solid cellspacing=5px>
+            <tbody>
               <tr>
                 <th>Name</th>
                   <td>'.$bike_details['bname'].'</td>
@@ -34,6 +35,8 @@ if ($selected_bike) {
                 <th>Price</th>
                   <td>'.$bike_details['price'].'</td>
                 </tr>
+              </tbody>
+              </table>
               </div>
               </body>';
         }}
@@ -65,7 +68,7 @@ if ($selected_bike) {
     }
 }
 
-/*$selected_bike2 = isset($_POST['selected_bike2']) ? $_POST['selected_bike2'] : '';
+$selected_bike2 = isset($_POST['selected_bike2']) ? $_POST['selected_bike2'] : '';
 if ($selected_bike2) {
     $sql2 = "SELECT * FROM bikes WHERE bname = '$selected_bike2'";
     $result2 = $conn->query($sql2);
@@ -73,7 +76,9 @@ if ($selected_bike2) {
     if ($result2->num_rows === 1) {
         $bike_details2 = $result2->fetch_assoc();
 
-        $html2 = "<table>";
+        
+
+       /* $html2 = "<table>";
         $html2.= "<tr>
       <th>Brand</th>
       <th>Name</th>

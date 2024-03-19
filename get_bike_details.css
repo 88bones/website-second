@@ -1,8 +1,21 @@
 .data{
-    background-color: saddlebrown;
-    width: 100%;
+    /*background-color: saddlebrown;*/
+    width: 300px;
+    padding: 6px;
 }
 
-.data-items{
-    background-color: wheat;
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
 }
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 6px;
+}
+
+
+
