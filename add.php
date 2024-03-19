@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Bikes</title>
-    <link rel="stylesheet" href="add.css">
+    <link rel="stylesheet" href="add.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
-<?php
-        include 'menu.php';
+    <?php
+    include 'menu.php';
     ?>
-    
+
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="addbikes">
             <div class="brand">
@@ -77,6 +77,44 @@
                 VALUES ('','$brand','$bname','$btype','$cc','$price','')");
     }
     ?>
+
+    <!--list of bikes-->
+    <?php
+    include 'connection.php';
+    $sql = "SELECT * FROM bikes";
+    $row = mysqli_query($conn, $sql);
+    echo '
+                   <div class="data">
+                    <table border=0 px solid cellspacing=1>
+                    <tr>
+                    <th>BIKE ID</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Type</th>
+                    <th>Displacement</th>
+                    <th>Price</th>
+                    
+                    </tr>
+                    </div>
+                    ';
+    while ($result = mysqli_fetch_assoc($row)) {
+        echo '<tr>
+                            <td>' . $result['bikeid'] . '</td>
+                            <td>' . $result['bname'] . '</td>
+                            <td>' . $result['brand'] . '</td>
+                            <td>' . $result['btype'] . '</td>
+                            <td>' . $result['enginecc'] . '</td>
+                            <td>' . $result['price'] . '</td>
+                            <td><a href="bike-edit.php?id=' . $result['bikeid']. '">Edit</a></td>
+    </tr>';
+
+        echo '<br>';
+    }
+    echo '</table>';
+    ?>
+
+    </table>
+    </div>
 </body>
 
 </html>

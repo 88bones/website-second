@@ -66,14 +66,30 @@ button{
     border-radius: 6px;
 }
 
-form{
-    background-color: aqua;
-    padding: 20px;
-}
-
 .addbikes{
     background-color: red;
     margin: 0px 400px;
 }
 
+.data {
+   /* background-color: yellow;*/
+    justify-content: center;
+    display: flex;
+    margin-top: 10px; 
+    width: 40%;
+    padding: 10px; 
+}
 
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+table{
+    width: 100%;
+
+}
+
+th, td {
+    padding: 6px;
+}
