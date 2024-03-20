@@ -15,6 +15,7 @@
 
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="addbikes">
+            <div class="form-items">
             <div class="brand">
                 <label for="BRAND">Brand</label><br>
                 <input type="radio" name="brand" value="Yamaha">
@@ -57,7 +58,7 @@
             <div class="sb-btm">
                 <input type="submit" value="Submit" name='submit'>
             </div>
-
+        </div>
         </div>
     </form>
 
@@ -105,7 +106,7 @@
                             <td>' . $result['btype'] . '</td>
                             <td>' . $result['enginecc'] . '</td>
                             <td>' . $result['price'] . '</td>
-                            <td><a href="bike-edit.php?id=' . $result['bikeid']. '">Edit</a></td>
+                            <td><a href="bike-edit.php?id=' . $result['bikeid'] . '">Edit</a></td>
     </tr>';
 
         echo '<br>';

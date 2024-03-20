@@ -35,8 +35,8 @@ if ($result->num_rows === 1) {
   $price = $bike['price'];
 
   echo "<h2>Edit Bike</h2>
-  <form action='' method='post'  enctype='multipart/form-data'>
-    <input type='hidden' name='bike_id' value='$bikeid'>
+  <form action='update-bike.php' method='post'  enctype='multipart/form-data'>
+    <input type='hidden' name='bikeid' value='$bikeid'>
     <label for='bike_name'>Bike Name:</label>
     <input type='text' name='bike_name' id='bike_name' value='$bike_name' required>
     <br>
