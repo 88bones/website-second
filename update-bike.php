@@ -1,32 +1,24 @@
 <?php
 include 'connection.php';
+include 'menu.php';
 
-// Get form data
-$bike_id = isset($_POST['bikeid']) ? (int) $_POST['bikeid'] : 0;
-$bike_name = isset($_POST['bname']) ? mysqli_real_escape_string($conn, $_POST['bname']) : '';
-$brand = isset($_POST['brand']) ? mysqli_real_escape_string($conn, $_POST['brand']) : '';
-$type = isset($_POST['btype']) ? mysqli_real_escape_string($conn, $_POST['btype']) : '';
-$displacement = isset($_POST['enginecc']) ? (int) $_POST['enginecc'] : 0;
-$price = isset($_POST['price']) ? (float) $_POST['price'] : 0.0;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $bikeid = $_POST['bikeid'];
+    $bike_name = $_POST['bname'];
+    $brand = $_POST['brand'];
+    $type = $_POST['btype'];
+    $displacement = $_POST['enginecc'];
+    $price = $_POST['price'];
 
-// Validate data (optional)
-if ($bike_id <= 0 || empty($bike_name) || empty($brand) || empty($type) || $displacement <= 0 || $price <= 0) {
-  echo "Invalid bike data provided.";
-  exit;
-}
+    $sql = "UPDATE bikes SET bname='$bike_name', brand='$brand', btype='$type', enginecc='$displacement', price='$price' WHERE bikeid=$bikeid";
 
-$sql = "UPDATE bikes SET bname = ?, brand = ?, btype = ?, enginecc = ?, price = ? WHERE id = ?";
-$stmt = $conn->prepare($stmt); // Prepare statement for security
-
-// Bind values to the prepared statement
-$stmt->bind_param('ssssidi', $bike_name, $brand, $type, $displacement, $price, $bike_id);
-
-if ($stmt->execute()) {
-  echo "Bike details updated successfully!";
-  // Optionally, redirect to a confirmation or view page
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+        header("Location: update-bike.php?bikeid=$bikeid");
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
 } else {
-  echo "Error updating bike: " . $conn->error;
+    echo "Invalid request method";
 }
-
-$stmt->close();
 ?>

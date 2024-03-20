@@ -15,6 +15,7 @@ include 'menu.php';
 // Get the bike ID from the URL query string
 $bikeid = isset($_GET['bikeid']) ? (int) $_GET['bikeid'] : '';
 
+echo "Bike ID: $bikeid";
 // Validate bike ID (optional)
 if ($bikeid <= 0) {
   echo "Invalid bike ID.";

@@ -12,11 +12,11 @@
     <?php
     include 'menu.php';
     ?>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        <div class="addbikes">
+    <div class="addbikes">
+    
+        <form action="" method="POST" enctype="multipart/form-data">
+        <h2>Add Bikes</h2><br>
             <div class="form-items">
-            <div class="brand">
                 <label for="BRAND">Brand</label><br>
                 <input type="radio" name="brand" value="Yamaha">
                 <label for="yamaha">Yamaha</label>
@@ -28,14 +28,15 @@
                 <label for="ktm">KTM</label>
                 <input type="radio" name="brand" value="Royal-Enfield">
                 <label for="royal-enfield">Royal Enfiled</label>
-            </div>
+                <br><br>
 
-            <div class="mname">
-                <label for="bname">Model Name</label>
+            
+                <label for="bname">Model Name</label><br>
                 <input type="text" name="bname" />
-            </div>
+                <br><br>
+            
 
-            <label for="btype">Bike Type</label>
+            <label for="btype">Bike Type</label><br>
             <div class="btype">
                 <input type="radio" name="btype" value="sport">
                 <label for="sport">Sport</label>
@@ -45,21 +46,21 @@
                 <label for="commuter">Commuter</label>
                 <input type="radio" name="btype" value="naked">
                 <label for="ktm">Naked</label>
-            </div>
+            </div><br>
 
-            <label for="cc">Engine CC</label>
-            <input type="number" name="enginecc" /><br>
+            <label for="cc">Engine CC</label><br>
+            <input type="number" name="enginecc" /><br><br>
 
-            <label for="price">Price</label>
-            <input type="number" name="price" /><br>
+            <label for="price">Price</label><br>
+            <input type="number" name="price" /><br><br>
 
             <input type="file" name="image">
-            <input type="submit" value="Upload">
+            <input type="submit" value="Upload"><br><br>
             <div class="sb-btm">
                 <input type="submit" value="Submit" name='submit'>
             </div>
-        </div>
-        </div>
+    </div>
+    </div>  
     </form>
 
 
@@ -106,7 +107,7 @@
                             <td>' . $result['btype'] . '</td>
                             <td>' . $result['enginecc'] . '</td>
                             <td>' . $result['price'] . '</td>
-                            <td><a href="bike-edit.php?id=' . $result['bikeid'] . '">Edit</a></td>
+                            <td><a href="bike-edit.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
     </tr>';
 
         echo '<br>';

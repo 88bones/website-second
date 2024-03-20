@@ -1,63 +1,30 @@
-/* Overall form container */
-
-.addbikes form {
-    display: flex; /* Arrange elements horizontally */
-    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
-    width: 100%; /* Stretch the form to full width */
+.addbikes{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
   
-  /* Label styles */
-  .addbikes label {
-    background-color: ;
-    display: block; /* Display labels on separate lines */
-    margin-bottom: 5px; /* Add some space below labels */
-    font-weight: bold; /* Make labels slightly bolder */
-  }
-  
-  /* Input fields (text and number) */
-  .addbikes input[type="text"],
-  .addbikes input[type="number"] {
-    width: 30%; /* Make input fields take up full width */
-    padding: 10px; /* Add padding for better readability */
-    border: 1px solid #ccc; /* Add a thin border */
-    border-radius: 3px; /* Add rounded corners */
-    box-sizing: border-box; /* Include padding within width calculation */
-  }
-  
-  /* Radio buttons and their labels */
-  .addbikes .form-items .brand,
-  .addbikes .form-items .btype {
-    display: flex; /* Arrange radio buttons and labels horizontally */
-    align-items: center; /* Align labels vertically with radio buttons */
-  }
-  
-  .addbikes .form-items .brand label,
-  .addbikes .form-items .btype label {
-    margin-right: 10px; /* Add some space between radio buttons and labels */
-  }
-  
-  /* File upload input */
-  .addbikes input[type="file"] {
-    padding: 5px; /* Adjust padding for file upload */
-    border: 1px solid #ccc; /* Add a thin border */
-    border-radius: 3px; /* Add rounded corners */
-  }
-  
-  /* Submit button */
-  .addbikes input[type="submit"] {
-    background-color: #4CAF50; /* Green color for submit button */
-    color: white; /* White text color */
-    padding: 10px 20px; /* Add some padding */
-    border: none; /* Remove default button border */
-    border-radius: 3px; /* Add rounded corners */
-    cursor: pointer; /* Indicate clickable behavior */
-  }
-  
-  /* Submit button hover effect */
-  .addbikes input[type="submit"]:hover {
-    background-color: #3e8e41; /* Darker green on hover */
-  }
-  
+.addbikes form{
+  background-color: silver;
+  width: 30%;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+input[type=text],
+input[type=number]{
+  width: 100%;
+  border-radius: 6px;
+  padding: 6px;
+  border: 1px solid hsl(246, 25%, 79%);
+}
+
+input[type=submit]{
+  background-color: #4CAF50;
+  border-radius: 6px;
+  padding: 6px;
+  border:1px solid #268a29 ;
+}
 
 
 
@@ -91,4 +58,5 @@ th, td {
 td a{
     background-color:#4CAF50;
     padding: 5px 3px 3px 5px;
+    border-radius: 6px;
 }
