@@ -21,7 +21,7 @@ select {
 
 
 input[type=text],
-input[type=number] {
+input[type=email] {
     width: 90%;
     border-radius: 6px;
     padding: 6px;

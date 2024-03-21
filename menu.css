@@ -58,11 +58,15 @@ a:hover{
 
 .login{
     background-color: black;
-    font-size: 16px;
     padding: 5px;
-    color: whitesmoke;
+    width: 60px;
+    border: none;
     border-radius: 6px;
+}
+.login a{
+    color: white;
 }
 .login:hover{
     cursor: pointer;
 }
+

@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="popupsignin.css">
 </head>
 <body>
+    <?php
+        include 'menu.php';
+    ?>
+
     <div class="center">
         <p id="show-login">Login</p>
     </div>
-    <div class="popup">
-        <div class="close-btn">&times;</div>  <!--character entity representing x-->
+    <div class="popup">    
         <div class="container">
             <h2>Login</h2>
             <form action="login.php" method="POST">
@@ -23,14 +26,31 @@
                     <label for="password">Password: </label>
                     <input type="password" name="password" id="password" required> <br><br>
                 </div>
-                <div class="container-element">    
-                    <button type="submit">Login</button>
-                </div>
                 <div class="container-element">
-                    <a href="#">Forgot Password?</a>
-                </div>    
+                    <label>Role: </label>
+                    <select name="role" id="">
+                        <option value="select-role">Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select><br><br>
+                </div>
+                <div class="container-element">    
+                    <button id="loginBtn" class="btn" type="submit">Login</button><br><br>
+                </div>
+                <!-- <div class="container-element"> -->
+                    <!-- <a href="#">Forgot Password?</a> -->
+                <!-- </div>     -->
+
+                <div>
+                    <p>Don't have an account? Click Here.</p>
+                    <button><a href="signup.php">Register</a></button>
+                </div>
+
             </form> 
         </div>
     </div>
+
+    <!-- <script src="script.js"></script> -->
+
 </body>
 </html>
