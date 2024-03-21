@@ -47,6 +47,7 @@ tr:nth-child(odd) {
 }
 
 table{
+  margin-left: 40px;
     width: 100%;
 
 }

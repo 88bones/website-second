@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Bikes</title>
     <link rel="stylesheet" href="add.css?v=<?php echo time(); ?>">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -107,13 +108,36 @@
                             <td>' . $result['btype'] . '</td>
                             <td>' . $result['enginecc'] . '</td>
                             <td>' . $result['price'] . '</td>
-                            <td><a href="bike-edit.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
+                            <td><a href="update-bike.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
+                            <td><a href="delete-bike.php?bikeid='.$result['bikeid'].'">Delete</a></td>
+
     </tr>';
 
         echo '<br>';
     }
     echo '</table>';
-    ?>
+   ?>
+        
+      <!--  <script>
+        function deleteBike(bikeid) {
+            if (confirm('Are you sure you want to delete this bike?')) {
+                $.ajax({
+                    url: 'delete-bike.php',
+                    type: 'POST',
+                    data: { bikeid: bikeid },
+                    success: function(response) {
+                        alert(response);
+                        // Reload the page to reflect the changes
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert('An error occurred while deleting the bike.');
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        
+    </script>-->
 
     </table>
     </div>
