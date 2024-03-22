@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-$stylesheet_url = "get_bike_details.css?v=<?php echo time(); ?>";
+$stylesheet_url = "get_bike_details.css";
         	echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
 
 $selected_bike = isset($_POST['selected_bike']) ? $_POST['selected_bike'] : '';
@@ -104,4 +104,5 @@ if ($selected_bike2) {
     }
 }*/
 
+?>
 

@@ -1,3 +1,22 @@
+<?php
+//start the session
+session_start();
+
+    include 'connection.php';
+    include 'functions.php';
+    
+    $user_data = check_login($conn);
+
+
+    //both works to redirect the user to the login page if the user is not logged in
+    // if(!isset($_SESSION["user"])) {
+    //     header("Location: signin-new.php");
+    // }
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +41,9 @@
                     <input type="text" id="search" placeholder="eg: R15M, MT-15" />
                     <button type="submit" id="search-filter">Search</button>
                 </div>
+        
+            </form>
         </div>
-        </form>
     </div>
 
 
@@ -62,7 +82,7 @@
                 <li><a href=""><img src="/website-second/images/function-img/motorbike.png" width="50px" height="50px"></a></li>
                 <li><a href=""><img src="/website-second/images/function-img/motorcycle.png" width="50px" height="50px"></a></li>
                 <li><a href=""><img src="/website-second/images/function-img/tax.png" width="50px" height="50px"></a></li>
-                <li><a href=""><img src="/website-second/images/function-img/compare.png" width="50px" height="50px"></a></li>
+                <li><a href="compare.php"><img src="/website-second/images/function-img/compare.png" width="50px" height="50px"></a></li>
             </ul>
         </div>
     </div>

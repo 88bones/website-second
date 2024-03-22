@@ -4,10 +4,10 @@
     box-sizing: border-box;
 }
 
-/*body {
-    background: linear-gradient(to right, #2773dd, #3a6073);
-    font-family: "Raleway",sans-serif;
-}*/
+body {
+    background: rgb(230,230,230);
+    background: linear-gradient(90deg, rgba(230,230,230,1) 48%, rgba(0,0,0,0.8156512605042017) 100%);
+}
 
 .center {
     position: absolute;
@@ -29,9 +29,10 @@
 }
 
 .popup {
+    background-color: w;
     position: absolute;
     top: 50%;
-    left:50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 380px;
     padding: 50px;
@@ -102,3 +103,19 @@
     font-weight: 600;
 }
 
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    padding: 6px;
+    border-radius: 6px;
+    width: 100%;
+    border: none;
+}

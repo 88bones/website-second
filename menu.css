@@ -64,9 +64,11 @@ a:hover{
     border-radius: 6px;
 }
 .login a{
-    color: white;
+    color:rgb(202, 202, 202)
 }
-.login:hover{
+.login a:hover{
     cursor: pointer;
+    color:white ;
 }
+
 

@@ -16,8 +16,8 @@
     <div class="function-container">
         <div class="function-item">
             <ul type=none>
-                <li><a href="users-create.php"><img src="/website-second/images/function-img/user.png" width="50px" height="50px"></a></li>
-                <li><a href="add.php"><img src="/website-second/images/function-img/motorbike.png" width="50px" height="50px" alt=""></a></li>
+                <li><a href="users-create.php"><img src="/website-second/images/function-img/user.png" width="50px" height="50px"></a><p>Users</p></li>
+                <li><a href="add.php"><img src="/website-second/images/function-img/motorbike.png" width="50px" height="50px" alt=""></a><p>Bikes</p></li>
             </ul>
         </div>
     </div>

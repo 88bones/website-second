@@ -30,3 +30,12 @@ li{
 li:hover{
     box-shadow: 2px 2px 16px grey; ;
 }
+ li img{
+    display: flex;
+    justify-content: center;
+    
+ }
+
+li p{
+    text-align: center;
+}

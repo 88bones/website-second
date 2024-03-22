@@ -42,23 +42,27 @@
 }
 
 .bike-table{
-    /*background-color: fuchsia;*/
+    background-color: whitesmoke;
     width:47%;
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px grey;
+    box-shadow: 2px 2px 2px grey;
 }
 
 select{
-    background-color: yellow;
+    background-color:whitesmoke;
     padding: 10px;
     border-radius:10px;
     width: 250px;
     font-weight:700;
 }
-/*
-.compare-bigg-box{
-    box-shadow: 2px -2px 16px grey;
-}*/
 
+select:hover{
+    box-shadow: 2px 2px 2px grey   ;
+}
+
+
+body{
+    background: rgb(230,230,230);
+}
