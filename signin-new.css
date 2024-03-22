@@ -119,4 +119,16 @@ input.form-control:hover {
     transition: 0.5s;
 }
 
+form p {
+    text-align: center;
+    font-size: 13px;
+}
+form p a {
+    text-decoration: none;
+    color: #3c00a0;
+}
+
+.lol{
+    font-size: 13px;
+}
 
