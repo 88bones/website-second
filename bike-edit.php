@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike Edit</title>
-    <link rel="stylesheet" href="bike-edit.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bike Edit</title>
+  <link rel="stylesheet" href="bike-edit.css">
 </head>
+
 <body>
-<?php
+  <?php
 
-include 'connection.php';
-include 'menu.php';
+  include 'connection.php';
+  include 'menu.php';
 
-// Get the bike ID from the URL query string
-$bikeid = isset($_GET['bikeid']) ? (int) $_GET['bikeid'] : '';
+  // Get the bike ID from the URL query string
+  $bikeid = isset($_GET['bikeid']) ? (int) $_GET['bikeid'] : '';
 
-echo "Bike ID: $bikeid";
-// Validate bike ID (optional)
-if ($bikeid <= 0) {
-  echo "Invalid bike ID.";
-  exit;
-}
+  echo "Bike ID: $bikeid";
+  // Validate bike ID (optional)
+  if ($bikeid <= 0) {
+    echo "Invalid bike ID.";
+    exit;
+  }
 
-$sql = "SELECT * FROM bikes WHERE bikeid = $bikeid";
-$result = $conn->query($sql);
+  $sql = "SELECT * FROM bikes WHERE bikeid = $bikeid";
+  $result = $conn->query($sql);
 
-if ($result->num_rows === 1) {
-  $bike = $result->fetch_assoc();
+  if ($result->num_rows === 1) {
+    $bike = $result->fetch_assoc();
 
-  // Pre-fill the form with existing data
-  $bike_name = $bike['bname'];
-  $brand = $bike['brand'];
-  $type = $bike['btype'];
-  $displacement = $bike['enginecc'];
-  $price = $bike['price'];
+    // Pre-fill the form with existing data
+    $bike_name = $bike['bname'];
+    $brand = $bike['brand'];
+    $type = $bike['btype'];
+    $displacement = $bike['enginecc'];
+    $price = $bike['price'];
+    $image = base64_encode($bike['image']);
 
-  echo "<h2>Edit Bike</h2>
+    echo "<h2>Edit Bike</h2>
   <form action='update-bike.php' method='post'  enctype='multipart/form-data'>
     <input type='hidden' name='bikeid' value='$bikeid'>
     <label for='bike_name'>Bike Name:</label>
@@ -53,15 +56,21 @@ if ($result->num_rows === 1) {
     <label for='price'>Price:</label>
     <input type='number' name='price' id='price' value='$price' required>
     <br>
+    <label for='image'>Current Image:</label><br>
+      <img src='data:image/jpeg;base64,$image' alt='$bike_name' width='100'><br>
+      <label for='image'>Upload New Image:</label>
+      <input type='file' name='image' id='image'>
+      <br>
     <button type='submit'>Save Changes</button>
   </form>";
-} else {
-  echo "Bike not found with ID: $bike_id";
-}
+  } else {
+    echo "Bike not found with ID: $bike_id";
+  }
 
-?>
+  ?>
 
 
-    
+
 </body>
+
 </html>

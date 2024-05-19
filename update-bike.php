@@ -34,8 +34,9 @@ if (isset($_POST['update_bikes'])) {
     $btype = $_POST['btype'];
     $enginecc = $_POST['enginecc'];
     $price = $_POST['price'];
+    $image = base64_encode($bike['image']);
 
-    $sql = "UPDATE bikes SET brand = '$brand', bname = '$bname', btype = '$btype', enginecc = '$enginecc', price = '$price' WHERE bikeid = '$idnew'";
+    $sql = "UPDATE bikes SET brand = '$brand', bname = '$bname', btype = '$btype', enginecc = '$enginecc', price = '$price' image='$image' WHERE bikeid = '$idnew'";
     $result = mysqli_query($conn, $sql);
 
     if (!$result) {
@@ -104,6 +105,13 @@ if (isset($_POST['update_bikes'])) {
         <div class="bike-body">
             <label for='price'>Price:</label>
             <input type='number' name='price' id='price' value='<?php echo $row['price'] ?>' required>
+        </div><br>
+
+        <div class="bike-body">
+            <label for='image'>Current Image:</label><br>
+            <img src='data:image/jpeg;base64,<?php echo base64_encode($image); ?>' alt='<?php echo base64_encode($row['image']); ?>' width='100'><br>
+            <label for='image'>Upload New Image:</label>
+            <input type='file' name='image' id='image'>
         </div><br>
 
         <div class="sb-btm">

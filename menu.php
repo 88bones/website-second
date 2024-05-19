@@ -30,6 +30,7 @@ include 'connection.php';
                 <button class="login"><a href="logout.php">Logout</a></button>
                 <!-- </div> -->
                 <button class="login"><a href="signup-new-1.php">Sign Up</a></button>
+
             </form>
         </div>
     </div>

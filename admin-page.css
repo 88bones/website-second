@@ -1,6 +1,7 @@
 .function-container{
     display: flex;
     justify-content: center;
+    height: 94.5vh;
 }
 
 
@@ -9,6 +10,7 @@
     display: flex;
     flex-direction:row;
     justify-content: center;
+    height: 100%;
 }
 
 

@@ -1,0 +1,24 @@
+.main-container{
+    background-color: saddlebrown;
+    display: flex;
+    height: 89vh;
+}
+
+h3{
+    background-color: darkblue;
+    width: 190%;
+}
+
+.side-bar{
+    background-color: lime; 
+    height: 100% ;
+    padding: 20px;
+}
+
+.options{
+    background-color: palegoldenrod;
+    margin-top: 20px;
+    line-height: 30px;
+    width: 100%;
+}
+

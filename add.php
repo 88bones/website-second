@@ -10,15 +10,12 @@
 </head>
 
 <body>
-    <?php
-    include 'menu.php';
-    ?>
+    <?php include 'menu.php'; ?>
     <div class="addbikes">
-    
         <form action="" method="POST" enctype="multipart/form-data">
-        <h2>Add Bikes</h2><br>
+            <h2>Add Bikes</h2><br>
             <div class="form-items">
-                <label for="BRAND">Brand</label><br>
+                <label for="brand">Brand</label><br>
                 <input type="radio" name="brand" value="Yamaha">
                 <label for="yamaha">Yamaha</label>
                 <input type="radio" name="brand" value="Honda">
@@ -28,47 +25,35 @@
                 <input type="radio" name="brand" value="KTM">
                 <label for="ktm">KTM</label>
                 <input type="radio" name="brand" value="Royal-Enfield">
-                <label for="royal-enfield">Royal Enfiled</label>
+                <label for="royal-enfield">Royal Enfield</label>
                 <br><br>
-
-            
                 <label for="bname">Model Name</label><br>
-                <input type="text" name="bname" />
-                <br><br>
-            
-
-            <label for="btype">Bike Type</label><br>
-            <div class="btype">
-                <input type="radio" name="btype" value="sport">
-                <label for="sport">Sport</label>
-                <input type="radio" name="btype" value="cruiser">
-                <label for="cruiser">Cruiser</label>
-                <input type="radio" name="btype" value="commuter">
-                <label for="commuter">Commuter</label>
-                <input type="radio" name="btype" value="naked">
-                <label for="ktm">Naked</label>
-            </div><br>
-
-            <label for="cc">Engine CC</label><br>
-            <input type="number" name="enginecc" /><br><br>
-
-            <label for="price">Price</label><br>
-            <input type="number" name="price" /><br><br>
-
-            <input type="file" name="image">
-            <input type="submit" value="Upload"><br><br>
-            <div class="sb-btm">
-                <input type="submit" value="Submit" name='submit'>
+                <input type="text" name="bname" /><br><br>
+                <label for="btype">Bike Type</label><br>
+                <div class="btype">
+                    <input type="radio" name="btype" value="sport">
+                    <label for="sport">Sport</label>
+                    <input type="radio" name="btype" value="cruiser">
+                    <label for="cruiser">Cruiser</label>
+                    <input type="radio" name="btype" value="commuter">
+                    <label for="commuter">Commuter</label>
+                    <input type="radio" name="btype" value="naked">
+                    <label for="ktm">Naked</label>
+                </div><br>
+                <label for="enginecc">Engine CC</label><br>
+                <input type="number" name="enginecc" /><br><br>
+                <label for="price">Price</label><br>
+                <input type="number" name="price" /><br><br>
+                <label for="image">Image</label><br>
+                <input type="file" name="image"><br><br>
+                <div class="sb-btm">
+                    <input type="submit" value="Submit" name='submit'>
+                </div>
             </div>
+        </form>
     </div>
-    </div>  
-    </form>
-
-
+    <?php include 'connection.php'; ?>
     <?php
-    include 'connection.php';
-    $error = 0;
-
     if (isset($_POST['submit'])) {
         $brand = $_POST['brand'];
         $bname = $_POST['bname'];
@@ -76,8 +61,59 @@
         $cc = $_POST['enginecc'];
         $price = $_POST['price'];
 
-        $result = mysqli_query($conn, "INSERT INTO bikes(bikeid, brand, bname, btype, enginecc, price, image) 
-                VALUES ('','$brand','$bname','$btype','$cc','$price','')");
+        // Image upload handling
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES["image"]["size"] > 5000000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+                $image = $target_file;
+
+                // Insert bike data into the database
+                $result = mysqli_query($conn, "INSERT INTO bikes (brand, bname, btype, enginecc, price, image) VALUES ('$brand', '$bname', '$btype', '$cc', '$price', '$image')");
+                if ($result) {
+                    echo "Bike added successfully!";
+                } else {
+                    echo "Error: " . mysqli_error($conn);
+                }
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
     }
     ?>
 
@@ -96,6 +132,8 @@
                     <th>Type</th>
                     <th>Displacement</th>
                     <th>Price</th>
+                    <th>Image</th>
+                    <th>Actions</th>
                     
                     </tr>
                     </div>
@@ -107,40 +145,21 @@
                             <td>' . $result['brand'] . '</td>
                             <td>' . $result['btype'] . '</td>
                             <td>' . $result['enginecc'] . '</td>
-                            <td>' . $result['price'] . '</td>
-                            <td><a href="update-bike.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
-                            <td><a href="delete-bike.php?bikeid='.$result['bikeid'].'">Delete</a></td>
+                            <td>' . $result['price'] . '</td>';
+
+        if (!empty($result['image'])) {
+            echo '<td><img src="data:image/jpeg;base64,' . base64_encode($result['image']) . '" alt="' . $result['bname'] . '" width="100"></td>';
+        } else {
+            echo '<td>No image</td>';
+        };
+
+
+        echo '<td><a href="update-bike.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
+                            <td><a href="delete-bike.php?bikeid=' . $result['bikeid'] . '">Delete</a></td>
 
     </tr>';
-
-        echo '<br>';
     }
-    echo '</table>';
-   ?>
-        
-      <!--  <script>
-        function deleteBike(bikeid) {
-            if (confirm('Are you sure you want to delete this bike?')) {
-                $.ajax({
-                    url: 'delete-bike.php',
-                    type: 'POST',
-                    data: { bikeid: bikeid },
-                    success: function(response) {
-                        alert(response);
-                        // Reload the page to reflect the changes
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        alert('An error occurred while deleting the bike.');
-                        console.error(xhr.responseText);
-                    }
-                });
-            }
-        
-    </script>-->
-
-    </table>
-    </div>
+    ?>
 </body>
 
 </html>
