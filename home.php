@@ -2,16 +2,16 @@
 //start the session
 session_start();
 
-    include 'connection.php';
-    include 'functions.php';
-    
-    $user_data = check_login($conn);
+include 'connection.php';
+include 'functions.php';
+
+$user_data = check_login($conn);
 
 
-    //both works to redirect the user to the login page if the user is not logged in
-    // if(!isset($_SESSION["user"])) {
-    //     header("Location: signin-new.php");
-    // }
+//both works to redirect the user to the login page if the user is not logged in
+// if(!isset($_SESSION["user"])) {
+//     header("Location: signin-new.php");
+// }
 ?>
 
 
@@ -30,20 +30,22 @@ session_start();
 
 <body>
     <?php
-        include 'menu.php';
+    include 'menu.php';
     ?>
 
     <div class="container">
         <div class="search">
-            <form id="searchbar" name="searchbar" action="">
+            <form id="searchbar" action="search-results.php" method="GET">
                 <p id="filter-tag">Search the right bike</p>
                 <div class="select-box">
-                    <input type="text" id="search" placeholder="eg: R15M, MT-15" />
+
+                    <input type="text" id="search-input" name="search-input" placeholder="eg: R15M, MT-15" />
                     <button type="submit" id="search-filter">Search</button>
-                </div>
-        
             </form>
         </div>
+
+        </form>
+    </div>
     </div>
 
 

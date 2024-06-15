@@ -1,4 +1,4 @@
-.compare-header-container{
+.compare-header-container {
     /*background-color: red; */
     padding: 10px;
     display: flex;
@@ -6,63 +6,64 @@
     margin-top: 20px;
 }
 
-.compare-header{
+.compare-header {
     /*background-color: blue;*/
     text-align: center;
     padding: 5px;
     width: 70%;
 }
 
-.compare-box-container{
-   /* background-color: greenyellow;*/
+.compare-box-container {
+    /* background-color: greenyellow;*/
     padding: 10px;
     margin-top: 5px;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 }
 
-.compare-box{
+.compare-box {
     /*ackground-color: yellow;*/
     width: 70%;
 }
 
-.compare-items{
+.compare-items {
     /*background-color: aquamarine;*/
     display: flex;
     justify-content: space-evenly;
 }
 
 
-.bike-table-container{
-   /* background-color: skyblue;*/
+.bike-table-container {
+    /*background-color: skyblue;*/
     padding: 10px;
     display: flex;
     justify-content: center;
-    height: 200px;
+    height: 450px;
 }
 
-.bike-table{
-    background-color: whitesmoke;
-    width:47%;
+.bike-table {
+    /* background-color: blueviolet;*/
+    box-shadow: 1px 1px 7px 5px rgba(0, 0, 0, 0.75);
+    width: 55%;
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
+
+}
+
+select {
+    background-color: whitesmoke;
+    padding: 10px;
+    border-radius: 10px;
+    width: 250px;
+    font-weight: 700;
+}
+
+select:hover {
     box-shadow: 2px 2px 2px grey;
 }
 
-select{
-    background-color:whitesmoke;
-    padding: 10px;
-    border-radius:10px;
-    width: 250px;
-    font-weight:700;
-}
 
-select:hover{
-    box-shadow: 2px 2px 2px grey   ;
-}
-
-
-body{
-    background: rgb(230,230,230);
+body {
+    background: rgb(230, 230, 230);
 }

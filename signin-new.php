@@ -10,7 +10,7 @@
 //both works to redirect the user to the login page if the user is not logged in
 // if(!isset($_SESSION["user"])) {
 // header("Location: signin-new.php");
-// }
+//}
 
 //start the session
 session_start();

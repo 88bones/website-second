@@ -1,22 +1,29 @@
-.data{
+.data {
     /*background-color: saddlebrown;*/
+    margin-top: 40px;
     width: 300px;
-    padding: 6px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
 tr:nth-child(odd) {
-    background-color: #cbcbcb;
+    background-color: #b7b7b7;
 }
 
-table{
+table {
     width: 100%;
-    border-collapse:collapse ;
+    border-collapse: collapse;
+
 }
 
-th, td {
-    padding:6px 10px 6px 10px;
+th,
+td {
+    padding: 6px 10px 6px 10px;
 }
 
-
-
-    
+img {
+    margin: 10px 10px 0 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}

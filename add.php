@@ -63,7 +63,7 @@
 
         // Image upload handling
         $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . ($_FILES["image"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -100,7 +100,7 @@
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+                echo "The file " . (($_FILES["image"]["name"])) . " has been uploaded.";
                 $image = $target_file;
 
                 // Insert bike data into the database
@@ -123,41 +123,41 @@
     $sql = "SELECT * FROM bikes";
     $row = mysqli_query($conn, $sql);
     echo '
-                   <div class="data">
-                    <table border=0 px solid cellspacing=1>
-                    <tr>
-                    <th>BIKE ID</th>
-                    <th>Name</th>
-                    <th>Brand</th>
-                    <th>Type</th>
-                    <th>Displacement</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                    
-                    </tr>
-                    </div>
-                    ';
+               <div class="data">
+                <table border=0 px solid cellspacing=1>
+                <tr>
+                <th>BIKE ID</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Type</th>
+                <th>Displacement</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Actions</th>
+                
+                </tr>
+                </div>
+                ';
     while ($result = mysqli_fetch_assoc($row)) {
         echo '<tr>
-                            <td>' . $result['bikeid'] . '</td>
-                            <td>' . $result['bname'] . '</td>
-                            <td>' . $result['brand'] . '</td>
-                            <td>' . $result['btype'] . '</td>
-                            <td>' . $result['enginecc'] . '</td>
-                            <td>' . $result['price'] . '</td>';
+                        <td>' . $result['bikeid'] . '</td>
+                        <td>' . $result['bname'] . '</td>
+                        <td>' . $result['brand'] . '</td>
+                        <td>' . $result['btype'] . '</td>
+                        <td>' . $result['enginecc'] . '</td>
+                        <td>' . $result['price'] . '</td>';
 
         if (!empty($result['image'])) {
-            echo '<td><img src="data:image/jpeg;base64,' . base64_encode($result['image']) . '" alt="' . $result['bname'] . '" width="100"></td>';
+            echo '<td><img src="data:image/jpeg;base64,' . $result['image'] . '" alt="' . $result['bname'] . '"height="60" width="100"></td>';
         } else {
             echo '<td>No image</td>';
         };
 
 
         echo '<td><a href="update-bike.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
-                            <td><a href="delete-bike.php?bikeid=' . $result['bikeid'] . '">Delete</a></td>
+                        <td><a href="delete-bike.php?bikeid=' . $result['bikeid'] . '">Delete</a></td>
 
-    </tr>';
+</tr>';
     }
     ?>
 </body>

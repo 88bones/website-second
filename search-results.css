@@ -1,0 +1,63 @@
+/*.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}*/
+
+
+.bike-display {
+    /*background-color: beige;*/
+    display: flex;
+    padding: 16px;
+    justify-content: center;
+    margin-top: 20px;
+    box-shadow: -1px 2px 1px 0px rgba(0, 0, 0, 0.45);
+}
+
+.bike-container {
+    /*background-color: saddlebrown;*/
+    display: flex;
+    width: 70%;
+}
+
+.bike-brand {
+    /* background-color: green;*/
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 5px 0px 10px 5px;
+}
+
+.bike-specs {
+    margin-left: 20px;
+}
+
+.price {
+    font-size: 18px;
+    padding: 5px 0px 10px 5px;
+}
+
+.bike-image {
+    width: 500px;
+}
+
+img {
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 1px 1px 7px 5px rgba(0, 0, 0, 0.75);
+}
