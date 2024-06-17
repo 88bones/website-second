@@ -37,10 +37,11 @@
 
 .bike-brand {
     /* background-color: green;*/
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 500;
     text-transform: capitalize;
     padding: 5px 0px 10px 5px;
+
 }
 
 .bike-specs {
@@ -60,4 +61,15 @@ img {
     border-radius: 10px;
     width: 100%;
     box-shadow: 1px 1px 7px 5px rgba(0, 0, 0, 0.75);
+}
+
+.bike-details {
+    background-color: saddlebrown;
+}
+
+.bike-info {
+    background-color: sandybrown;
+    width: 50%;
+    display: flex;
+    margin-left: 250px;
 }

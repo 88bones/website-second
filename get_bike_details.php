@@ -15,7 +15,7 @@ if ($selected_bike) {
 
 
     if (!empty($bike_details['image'])) {
-      echo '<td><img src="data:image/jpeg;base64,' . ($bike_details['image']) . '" height="200" width="350"></td>';
+      echo '<td><img src="' . ($bike_details['image']) . '" height="200" width="350"></td>';
     } else {
       echo '<td>No image</td>';
     };

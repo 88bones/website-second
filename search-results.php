@@ -34,7 +34,7 @@ $conn->close();
                 <div class="grid-item">
                     <?php
                     if (!empty($item['image'])) {
-                        echo '<td><img src="data:image/jpeg;base64,' . ($item['image']) . '" width="350"></td>';
+                        echo '<td><img src="' . ($item['image']) . '" width="350"></td>';
                     } else {
                         echo '<td>No image</td>';
                     }; ?>
@@ -54,7 +54,7 @@ $conn->close();
                 if (count($items) > 0)
                     foreach ($items as $item);
                 if (!empty($item['image'])) {
-                    echo '<td><img src="data:image/jpeg;base64,' . ($item['image']) . '" width="350px"></td>';
+                    echo '<td><img src="' . ($item['image']) . '" width="350px"></td>';
                 } else {
                     echo '<td>No image</td>';
                 };
@@ -63,9 +63,34 @@ $conn->close();
             <div class="bike-specs">
                 <p class="bike-brand"><?php echo htmlspecialchars($item['brand']) ?>
                     <?php echo htmlspecialchars($search); ?></p>
-                <p class="price"><?php echo htmlspecialchars("Rs. " . $item['price']);; ?></p>
             </div>
 
+
+        </div>
+
+    </div>
+    <div class="key-specs">
+        <h3>Key Specifications</h3>
+    </div>
+    <div class="bike-details">
+        <div class="bike-info">
+            <table>
+
+                <th>Price</th>
+                <tr>
+                    <td><?php echo htmlspecialchars($item['price']) ?></td>
+                </tr>
+
+                <th>Type</th>
+                <tr>
+                    <td><?php echo htmlspecialchars($item['btype']) ?></td>
+                </tr>
+
+                <th>Price</th>
+                <tr>
+                    <td><?php echo htmlspecialchars($item['enginecc']) ?></td>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
