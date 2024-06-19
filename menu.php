@@ -16,8 +16,8 @@
             <div class="menu-items">
                 <a href="home.php">Home</a>
                 <a href="compare.php">Compare</a>
-                <a href="">Bikes</a>
-                <a href="calculation.html">Calculate</a>
+                <a href="bike-list.php">Bikes</a>
+                <a href="calculation.php">Calculate</a>
                 <a href="admin-page.php">Admin</a>
             </div>
             <form action="">

@@ -23,7 +23,7 @@ $user_data = check_login($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="home.css?v=<?php echo time() ?>">
     <title>Information System</title>
 
 </head>

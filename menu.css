@@ -1,74 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: content-box;
     font-family: "Poppins", sans-serif;
 }
 
-body{
-    font-family:
-    background-color: rgb(207, 207, 207);
+body {
+    background-color: #f0f0f0;
 }
 
-.logo{
+
+.logo {
     display: flex;
     font-size: 20px;
     font-weight: 700;
 }
 
-.top-bar{
+.top-bar {
     background-color: whitesmoke;
     display: flex;
     position: sticky;
-    justify-content: center;    
+    justify-content: center;
     top: 0px;
     box-shadow: 2px 2px 16px grey;
 }
 
-.menu-bar{
+.menu-bar {
     display: flex;
     width: 95%;
-    justify-content:space-between;
+    justify-content: space-between;
     padding: 5px;
 }
 
-h1{
-    font-weight:900;
+h1 {
+    font-weight: 900;
     color: black;
 }
 
-.menu-items{
+.menu-items {
     padding: 5px;
     display: flex;
     width: 30%;
-    justify-content:space-around;
+    justify-content: space-around;
     font-size: 14px;
 }
 
-a{
+a {
     text-decoration: none;
     color: rgb(57, 57, 57);
 }
- 
-a:hover{
+
+a:hover {
     color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login{
+.login {
     background-color: black;
     padding: 5px;
     width: 60px;
     border: none;
     border-radius: 6px;
 }
-.login a{
-    color:rgb(202, 202, 202)
+
+.login a {
+    color: rgb(202, 202, 202)
 }
-.login a:hover{
+
+.login a:hover {
     cursor: pointer;
-    color:white ;
+    color: white;
 }
-
-

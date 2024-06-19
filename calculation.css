@@ -1,0 +1,91 @@
+.container {
+    max-width: 600px;
+    margin: 7px auto;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table td,
+table th {
+    padding: 10px;
+    text-align: left;
+}
+
+input[type="number"],
+input[type="range"],
+input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+input[name="calculate"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+input[type="range"] {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#interest_rate_value {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #333;
+}
+
+table.result {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table.result td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+table.result td:first-child {
+    width: 50%;
+    font-weight: bold;
+}
+
+
+
+.calc-btn {
+    width: 100%;
+    background-color: saddlebrown;
+    display: flex;
+    justify-content: center;
+}
