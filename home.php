@@ -82,7 +82,7 @@ $user_data = check_login($conn);
         <div class="funtion-item">
             <ul type="none">
                 <li><a href=""><img src="/website-second/images/function-img/motorbike.png" width="50px" height="50px"></a></li>
-                <li><a href=""><img src="/website-second/images/function-img/motorcycle.png" width="50px" height="50px"></a></li>
+                <li><a href=""><img src="/website-second/images/function-img/review.png" width="50px" height="50px"></a></li>
                 <li><a href=""><img src="/website-second/images/function-img/tax.png" width="50px" height="50px"></a></li>
                 <li><a href="compare.php"><img src="/website-second/images/function-img/compare.png" width="50px" height="50px"></a></li>
             </ul>

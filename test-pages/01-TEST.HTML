@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Dealer Reviews</title>
+    <link rel="stylesheet" href="01-TEST.CSS">
+</head>
+
+<body>
+    <div class="review-section">
+        <h2>Dealer Reviews for Bikes</h2>
+
+        <!-- Review form -->
+        <form id="review-form" action="submit_review.php" method="post">
+            <div class="form-group">
+                <label for="dealer-name">Dealer Name:</label>
+                <input type="text" id="dealer-name" name="dealer_name" required>
+            </div>
+            <div class="form-group">
+                <label for="bike-model">Bike Model:</label>
+                <input type="text" id="bike-model" name="bike_model" required>
+            </div>
+            <div class="form-group">
+                <label for="review-text">Review:</label>
+                <textarea id="review-text" name="review_text" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Average</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="1">1 - Terrible</option>
+                </select>
+            </div>
+            <button type="submit">Submit Review</button>
+        </form>
+
+        <!-- Display reviews -->
+        <div class="reviews">
+            <h3>Recent Reviews</h3>
+            <!-- Example of a review -->
+            <div class="review">
+                <p><strong>Dealer:</strong> John Doe</p>
+                <p><strong>Bike Model:</strong> Yamaha R15</p>
+                <p><strong>Review:</strong> Great bike, excellent service!</p>
+                <p><strong>Rating:</strong> 5/5</p>
+            </div>
+            <!-- Repeat the above div for each review fetched from the database -->
+        </div>
+    </div>
+</body>
+
+</html>

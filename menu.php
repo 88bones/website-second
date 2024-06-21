@@ -18,6 +18,7 @@
                 <a href="compare.php">Compare</a>
                 <a href="bike-list.php">Bikes</a>
                 <a href="calculation.php">Calculate</a>
+                <a href="bike-review.php">Reviews</a>
                 <a href="admin-page.php">Admin</a>
             </div>
             <form action="">
