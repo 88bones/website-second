@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-$stylesheet_url = "get_bike_details.css?v=<?php echo time(); ?>";
+$stylesheet_url = "get_bike_details.css";
 echo "
 <link rel='stylesheet' href='{$stylesheet_url}'>";
 
@@ -13,7 +13,6 @@ if ($selected_bike) {
   if ($result->num_rows === 1) {
     $bike_details = $result->fetch_assoc();
 
-
     if (!empty($bike_details['image'])) {
       echo '<td><img src="' . ($bike_details['image']) . '" height="200" width="350"></td>';
     } else {
@@ -24,7 +23,7 @@ if ($selected_bike) {
 
 <body>
   <div class="data">
-    <table border=0px solid cellspacing=5px>
+    <table>
       <tbody>
         <tr>
           <th>Name</th>
@@ -49,5 +48,27 @@ if ($selected_bike) {
     </table>
   </div>
 </body>';
+
+
+    $bike_id = $bike_details['bikeid'];
+    $sql_reviews = "SELECT * FROM reviews WHERE bikeid = $bike_id";
+    $result_reviews = $conn->query($sql_reviews);
+
+    echo '<div class="reviews">';
+    echo '<h3>Reviews</h3>';
+    if ($result_reviews->num_rows > 0) {
+      while ($review = $result_reviews->fetch_assoc()) {
+        echo '<div class="review">';
+        echo '<p><strong>Reviewer:</strong>' . ' ' . htmlspecialchars($review['dealer_name']) . '</p>';
+        echo '<p><strong>Rating:</strong> ' . ' ' . htmlspecialchars($review['rating']) . '/5</p>';
+        echo '<p>' . htmlspecialchars($review['review_text']) . '</p>';
+        echo '</div>';
+      }
+    } else {
+      echo '<p>No reviews found for this bike.</p>';
+    }
+    echo '</div>';
+  } else {
+    echo '<p>No bike found with name: ' . htmlspecialchars($selected_bike) . '</p>';
   }
 }

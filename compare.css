@@ -38,7 +38,7 @@
     padding: 10px;
     display: flex;
     justify-content: center;
-    height: 450px;
+    height: auto;
 }
 
 .bike-table {
@@ -48,7 +48,8 @@
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
-    background-color: white;
+    background-color: #f8f8f8;
+    padding: 10px;
 
 }
 
