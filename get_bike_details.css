@@ -44,4 +44,5 @@ img {
 .review {
     padding: 2px;
     width: 100%;
+    border-bottom: 1px solid grey;
 }

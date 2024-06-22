@@ -1,80 +1,43 @@
 <?php
 
-// session_start();
-
-//     include 'connection.php';
-//     include 'functions.php';
-
-
-
-//both works to redirect the user to the login page if the user is not logged in
-// if(!isset($_SESSION["user"])) {
-// header("Location: signin-new.php");
-//}
-
-//start the session
+// Start the session
 session_start();
 
 include 'connection.php';
 include 'functions.php';
 
-//check if the user is alreadylogged in, redirect to home page if true
-// if(isset($_SESSION["username"])) {
-// header("Location: home.php");
-// exit;
-// }
-
-//check if the form is submitted
-//     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-//         //something was posted
-//         $username = $_POST['username'];
-//         // $email = $_POST['email'];
-//         $password = $_POST['password'];
-
-//         //read from database
-//         $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-//         $result = mysqli_query($conn, $sql);
-
-//         if($result) {
-//             //set session variables
-//             $_SESSION["username"] = $username;
-//             // $_SESSION["email"] = $email;
-//             // $_SESSION["role"] = "admin";
-//             header("Location: home.php");
-//             exit;
-//         } else {
-//             header("Location: signin-new.php?error=invalid");
-//             exit;
-//         }
-//     }
-
-// check if the form is submitted
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // if(isset($name) || isset($username) || isset($email) || isset($password)) {
-
-    //something was posted
+    // Retrieve posted data
     $username = $_POST['username'];
-    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (!empty($username) && !is_numeric($username) && !empty($email) && !empty($password)) {
+    // Validate the input
+    if (!empty($username) && !is_numeric($username) && !empty($password)) {
 
-        //read from database
-        $sql = "SELECT * FROM users WHERE username = '$username' AND email = '$email'";
+        // Read from database
+        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
-
-            if ($result &&  mysqli_num_rows($result) > 0) {
-
+            if ($result && mysqli_num_rows($result) > 0) {
                 $user_data = mysqli_fetch_assoc($result);
 
+                // Check if the password matches
                 if ($user_data['password'] === $password) {
 
+                    // Set session variables
                     $_SESSION['userid'] = $user_data['userid'];
-                    header('Location: home.php');
+                    $_SESSION['username'] = $user_data['username'];
+                    $_SESSION['role'] = $user_data['role'];
+
+                    // Redirect based on the role
+                    if ($user_data['role'] === 'admin') {
+                        header('Location: admin-page.php');
+                    } else {
+                        header('Location: home.php');
+                    }
                     die;
                 }
             }
@@ -82,12 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Please enter some valid information";
     }
-    // }
 }
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <div class="container">
-
         <div class="form-box">
             <h1 id="title">Sign In</h1>
             <form action="" method="POST">
@@ -117,11 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="input-field">
                         <i class="fa-solid fa-circle-user"></i>
                         <input type="text" id="text" name="username" class="form-control" placeholder="Username" required>
-                    </div>
-
-                    <div class="input-field">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="email" id="text" name="email" class="form-control" placeholder="Email" required>
                     </div>
 
                     <div class="input-field">
