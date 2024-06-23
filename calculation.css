@@ -12,7 +12,7 @@ h1 {
     color: #333;
 }
 
-form {
+#emi {
     margin-top: 20px;
 }
 
@@ -85,7 +85,6 @@ table.result td:first-child {
 
 .calc-btn {
     width: 100%;
-    background-color: saddlebrown;
     display: flex;
     justify-content: center;
 }

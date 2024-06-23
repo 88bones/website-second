@@ -62,7 +62,7 @@ if ($selected_bike) {
         echo '<p><strong>Reviewer:</strong>' . ' ' . htmlspecialchars($review['dealer_name']) . '</p>';
         echo '<p><strong>Rating:</strong> ' . ' ' . htmlspecialchars($review['rating']) . '/5</p>';
         echo '<p>' . htmlspecialchars($review['review_text']) . '</p>';
-        echo '</div><br> ';
+        echo '</div><br>';
       }
     } else {
       echo '<p>No reviews found for this bike.</p>';

@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="menu.css?v=<?php echo time(); ?>   ">
-
+    <link rel="stylesheet" href="menu.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -19,19 +18,14 @@
                 <a href="bike-list.php">Bikes</a>
                 <a href="calculation.php">Calculate</a>
                 <a href="bike-review.php">Reviews</a>
-                <a href="admin-page.php">Admin</a>
+                <!--<a href="admin-page.php">Admin</a>-->
             </div>
             <form action="">
-                <!-- <button type="button" class="login" href="/signin/popupsignin.php">Login</button> -->
-                <!-- <div class=""> -->
                 <button class="login"><a href="logout.php">Logout</a></button>
-                <!-- </div> -->
-                <button class="login"><a href="signup-new-1.php">Sign Up</a></button>
-
             </form>
         </div>
     </div>
-
+    </div>
 </body>
 
 </html>

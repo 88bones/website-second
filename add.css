@@ -1,10 +1,10 @@
-.addbikes{
+.addbikes {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-  
-.addbikes form{
+
+.addbikes form {
   background-color: silver;
   width: 30%;
   padding: 20px;
@@ -12,18 +12,18 @@
 }
 
 input[type=text],
-input[type=number]{
+input[type=number] {
   width: 100%;
   border-radius: 6px;
   padding: 6px;
   border: 1px solid hsl(246, 25%, 79%);
 }
 
-input[type=submit]{
+input[type=submit] {
   background-color: #4CAF50;
   border-radius: 6px;
   padding: 6px;
-  border:1px solid #268a29 ;
+  border: 1px solid #268a29;
 }
 
 
@@ -33,31 +33,31 @@ input[type=submit]{
 
 
 .data {
-   /* background-color: yellow;*/
-    justify-content: center;
-    display: flex;
-    margin-top: 10px; 
-    width: 40%;
-    padding: 10px; 
+  justify-content: center;
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 
 tr:nth-child(odd) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
-table{
+table {
   display: flex;
-    width: 100%;
+  width: 100%;
 
 }
 
-th, td {
-    padding: 6px;
+th,
+td {
+  padding: 6px;
 }
 
-td a{
-    background-color:#4CAF50;
-    padding: 5px 3px 3px 5px;
-    border-radius: 6px;
+td a {
+  background-color: #4CAF50;
+  padding: 5px 3px 3px 5px;
+  border-radius: 6px;
 }

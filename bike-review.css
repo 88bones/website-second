@@ -36,7 +36,7 @@
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #2be556;
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -45,7 +45,7 @@
 }
 
 #review-form button:hover {
-    background-color: #1ada54;
+    background-color: #429945;
 }
 
 /* Review display styling */

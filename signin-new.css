@@ -5,9 +5,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins',sans-serif;
-}
 
 .container {
     width: 100%;
@@ -62,6 +59,7 @@ body {
     transition: max-height 0.5s;
     overflow: hidden;
 }
+
 input {
     width: 100%;
     background: transparent;
@@ -92,6 +90,7 @@ input.form-control:hover {
     display: flex;
     justify-content: center;
 }
+
 .btn-field button {
     flex-basis: 45%;
     background: #3c00a0;
@@ -105,7 +104,10 @@ input.form-control:hover {
 }
 
 .input-group {
-    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -10px;
 }
 
 .btn-field button.disable {
@@ -123,12 +125,12 @@ form p {
     text-align: center;
     font-size: 13px;
 }
+
 form p a {
     text-decoration: none;
     color: #3c00a0;
 }
 
-.lol{
+.lol {
     font-size: 13px;
 }
-

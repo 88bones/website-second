@@ -13,36 +13,8 @@
     ?>
     <div class="container">
         <h1 align="center">EMI Calculator</h1>
-        <form name="emi" method="post" action="">
+        <form id="emi" name="emi" method="post" action="">
             <table>
-                <!-- <tr><td colspan="2" align="center">EMI Calculator</td></tr> -->
-                <!-- <tr>
-                <td>Brand:</td>
-                <td>
-                    <select name="brand">
-                        <option value="">Select Brand</option>
-                        <option value="brand1">Brand 1</option>
-                        <option value="brand2">Brand 2</option>
-                        </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Model:</td>
-                <td>
-                    <select name="model" >
-                        <option value="">Select Model</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Variant:</td>
-                <td>
-                    <select name="variant" >
-                        <option value="">Select Variant</option>
-                    </select>
-                </td>
-            </tr> -->
-
                 <tr>
                     <td>Down Payment: </td>
                     <td>&#8377; <input type="number" name="down_payment" min="0" required></td>

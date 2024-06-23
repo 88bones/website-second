@@ -48,33 +48,6 @@ $user_data = check_login($conn);
     </div>
     </div>
 
-
-    <!--<div class="compare-container">
-        <div class="compare-box">
-            <div class="compare-first">
-                <select name="bikes" id="bikes" placeholder="sss">
-                    <option value="" selected>Select Brand</option>
-                    <option value="yamaha">Yamaha</option>
-                    <option value="honda">Honda</option>
-                    <option value="bajaj">Bajaj</option>
-                    <option value="ktm">KTM</option>
-                    <option value="royal-enfield">Royal Enfield</option>
-                </select>
-            </div>
-
-            <div class="compare-second">
-                <select name="bikes" id="bikes" placeholder="sss">
-                    <option value="" selected>Select Brand</option>
-                    <option value="yamaha">Yamaha</option>
-                    <option value="honda">Honda</option>
-                    <option value="bajaj">Bajaj</option>
-                    <option value="ktm">KTM</option>
-                    <option value="royal-enfield">Royal Enfield</option>
-                </select>
-            </div>
-        </div>
-    </div>-->
-
     <div class="functiontag">
         <h2>Explore or Compare</h2>
     </div>
