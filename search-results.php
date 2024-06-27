@@ -54,7 +54,7 @@ $conn->close();
                 if (count($items) > 0)
                     foreach ($items as $item);
                 if (!empty($item['image'])) {
-                    echo '<td><img src="' . ($item['image']) . '" width="350px"></td>';
+                    echo '<td><img src="' . ($item['image']) . '" width="500px"></td>';
                 } else {
                     echo '<td>No image</td>';
                 };
@@ -75,24 +75,26 @@ $conn->close();
     <div class="bike-details">
         <div class="bike-info">
             <table>
-
-                <th>Price</th>
                 <tr>
+                    <th>Price</th>
+
                     <td><?php echo htmlspecialchars($item['price']) ?></td>
                 </tr>
-
-                <th>Type</th>
                 <tr>
+                    <th>Type</th>
+
                     <td><?php echo htmlspecialchars($item['btype']) ?></td>
                 </tr>
-
-                <th>Price</th>
                 <tr>
+                    <th>Price</th>
+
                     <td><?php echo htmlspecialchars($item['enginecc']) ?></td>
                 </tr>
             </table>
         </div>
     </div>
+
+
 </body>
 
 </html>

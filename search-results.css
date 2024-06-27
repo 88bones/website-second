@@ -1,75 +1,152 @@
-/*.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 16px;
+/* General Reset */
+.margin-padding-reset {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-style {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
+.search-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Grid Container */
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .grid-item {
-    border: 1px solid #ccc;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .grid-item img {
     max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}*/
+    border-radius: 10px;
+}
 
+.grid-item-title {
+    font-size: 20px;
+    margin: 10px 0;
+}
 
+.grid-item-description {
+    font-size: 16px;
+    color: #666;
+}
+
+/* No Items Found */
+.no-items-found {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+/* Bike Display */
 .bike-display {
-    /*background-color: beige;*/
     display: flex;
-    padding: 16px;
     justify-content: center;
-    margin-top: 20px;
-
+    margin-top: 40px;
 }
 
 .bike-container {
-    /*background-color: saddlebrown;*/
-    display: flex;
-    width: 70%;
-}
-
-.bike-brand {
-    /* background-color: green;*/
-    font-size: 32px;
-    font-weight: 500;
-    text-transform: capitalize;
-    padding: 5px 0px 10px 5px;
-
-}
-
-.bike-specs {
-    margin-left: 20px;
-}
-
-.price {
-    font-size: 18px;
-    padding: 5px 0px 10px 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px;
 }
 
 .bike-image {
-    width: 500px;
+    flex: 1;
+    text-align: center;
 }
 
-img {
+.bike-image img {
+    max-width: 100%;
     border-radius: 10px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.bike-specs {
+    flex: 1;
+}
+
+.bike-brand {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Key Specifications */
+.key-specs {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.key-specs-title {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Bike Details */
 .bike-details {
-    background-color: saddlebrown;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .bike-info {
-    background-color: sandybrown;
-    width: 50%;
-    display: flex;
-    margin-left: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bike-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bike-info th,
+.bike-info td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.bike-info th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bike-brand {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
