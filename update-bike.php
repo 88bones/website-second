@@ -1,5 +1,7 @@
-<?php include 'connection.php'; ?>
-<?php include 'menu.php'; ?>
+<?php
+include 'connection.php';
+include 'menu.php';
+?>
 <?php
 $stylesheet_url = "update-bike.css?v=<?php echo time(); ?>";
 echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
@@ -31,14 +33,25 @@ if (isset($_POST['update_bikes'])) {
     $enginecc = $_POST['enginecc'];
     $price = $_POST['price'];
 
+
     // Check if a new image is uploaded
     if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         $imageData = file_get_contents($_FILES['image']['tmp_name']);
-        $image = base64_encode($imageData);
+        $image = $imageData;
     }
 
+
+
     $sql = "UPDATE bikes SET brand = '$brand', bname = '$bname', btype = '$btype', enginecc = '$enginecc', price = '$price', image='$image' WHERE bikeid = '$idnew'";
-    $result = mysqli_query($conn, $sql);
+    $result = $conn->query($sql);
+
+    // Check if the query executed successfully
+    if ($result) {
+        echo "Record updated successfully.";
+    } else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+
 
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
@@ -84,7 +97,7 @@ if (isset($_POST['update_bikes'])) {
 
         <div class="bike-body">
             <label for='image'>Current Image:</label><br>
-            <img src='data:image/jpeg;base64,<?php echo $image; ?>' alt='<?php echo $row['bname']; ?>' width='150'><br>
+            <img src='<?php echo $image; ?>' width='150'><br>
             <label for='image'>Upload New Image:</label>
             <input type='file' name='image' id='image'>
         </div><br>

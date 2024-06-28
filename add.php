@@ -148,7 +148,7 @@
                         <td>' . $result['price'] . '</td>';
 
         if (!empty($result['image'])) {
-            echo '<td><img src="' . $result['image'] . '" alt="' . $result['bname'] . '"height="60" width="100"></td>';
+            echo '<td><img src="' . $result['image'] . '"height="60" width="100"></td>';
         } else {
             echo '<td>No image</td>';
         };
