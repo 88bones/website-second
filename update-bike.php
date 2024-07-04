@@ -2,6 +2,7 @@
 include 'connection.php';
 include 'menu.php';
 ?>
+
 <?php
 $stylesheet_url = "update-bike.css?v=<?php echo time(); ?>";
 echo "<link rel='stylesheet' href='{$stylesheet_url}'>";
@@ -16,7 +17,7 @@ if (isset($_GET['bikeid'])) {
         die("Query failed: " . mysqli_error($conn));
     } else {
         $row = mysqli_fetch_assoc($result);
-        $image = $row['image']; // Fetch current image data
+        $image_path = $row['image']; // Assuming image path is stored in the database
     }
 }
 ?>
@@ -32,6 +33,9 @@ if (isset($_POST['update_bikes'])) {
     $btype = $_POST['btype'];
     $enginecc = $_POST['enginecc'];
     $price = $_POST['price'];
+    $idnew = $_GET['bikeid_new']; // Assuming you have this variable
+
+
 
 
     // Check if a new image is uploaded
@@ -42,7 +46,8 @@ if (isset($_POST['update_bikes'])) {
 
 
 
-    $sql = "UPDATE bikes SET brand = '$brand', bname = '$bname', btype = '$btype', enginecc = '$enginecc', price = '$price', image='$image' WHERE bikeid = '$idnew'";
+    $sql = "UPDATE bikes SET brand = '$brand', bname = '$bname', btype = '$btype', enginecc = '$enginecc', price = '$price' WHERE bikeid = '$idnew'";
+
     $result = $conn->query($sql);
 
     // Check if the query executed successfully
@@ -97,7 +102,14 @@ if (isset($_POST['update_bikes'])) {
 
         <div class="bike-body">
             <label for='image'>Current Image:</label><br>
-            <img src='<?php echo $image; ?>' width='150'><br>
+            <?php
+            if ($image_path && file_exists($image_path)) { // Check if image exists
+                echo "<img src='$image_path' width='150'>";
+            } else {
+                echo "Image not found.";
+            }
+            ?>
+            <br>
             <label for='image'>Upload New Image:</label>
             <input type='file' name='image' id='image'>
         </div><br>

@@ -7,12 +7,59 @@
     <title>Add Bikes</title>
     <link rel="stylesheet" href="add.css?v=<?php echo time(); ?>">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function validateForm() {
+            var brand = document.querySelector('input[name="brand"]:checked');
+            var bname = document.querySelector('input[name="bname"]');
+            var btype = document.querySelector('input[name="btype"]:checked');
+            var enginecc = document.querySelector('input[name="enginecc"]');
+            var price = document.querySelector('input[name="price"]');
+            var image = document.querySelector('input[name="image"]');
+
+            var errorMessages = [];
+
+            if (!brand) {
+                errorMessages.push("Brand is required");
+            }
+            if (!bname.value.trim()) {
+                errorMessages.push("Model Name is required");
+            }
+            if (!btype) {
+                errorMessages.push("Bike Type is required");
+            }
+            if (!enginecc.value.trim()) {
+                errorMessages.push("Engine CC is required");
+            }
+            if (!price.value.trim()) {
+                errorMessages.push("Price is required");
+            }
+            if (!image.value.trim()) {
+                errorMessages.push("Image is required");
+            }
+
+            if (errorMessages.length > 0) {
+                // Display error messages
+                var errorList = document.getElementById('error-list');
+                errorList.innerHTML = '';
+                errorMessages.forEach(function(error) {
+                    var li = document.createElement('li');
+                    li.textContent = error;
+                    errorList.appendChild(li);
+                });
+
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
 </head>
 
 <body>
     <?php include 'menu.php'; ?>
     <div class="addbikes">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="validateForm()">
             <h2>Add Bikes</h2><br>
             <div class="form-items">
                 <label for="brand">Brand</label><br>
@@ -52,6 +99,10 @@
             </div>
         </form>
     </div>
+
+    <div id="error-list" style="color: red;"></div>
+
+
     <?php include 'connection.php'; ?>
     <?php
     if (isset($_POST['submit'])) {
@@ -100,7 +151,7 @@
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                echo "The file " . (($_FILES["image"]["name"])) . " has been uploaded.";
+                echo "The file " . (($_FILES["image"]["name"])) . " has been uploaded." . " ";
                 $image = $target_file;
 
                 // Insert bike data into the database
@@ -108,7 +159,7 @@
                 if ($result) {
                     echo "Bike added successfully!";
                 } else {
-                    echo "Error: " . mysqli_error($conn);
+                    echo "Error:  ";
                 }
             } else {
                 echo "Sorry, there was an error uploading your file.";
