@@ -6,69 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Bikes</title>
     <link rel="stylesheet" href="add.css?v=<?php echo time(); ?>">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <!--<script>
-        function validateBikeForm() {
-            var isValid = true;
-            var brand = document.querySelector('input[name="brand"]:checked');
-            var bname = document.querySelector('input[name="bname"]');
-            var btype = document.querySelector('input[name="btype"]:checked');
-            var enginecc = document.querySelector('input[name="enginecc"]');
-            var price = document.querySelector('input[name="price"]');
-            var image = document.querySelector('input[name="image"]');
-            var errorList = document.getElementById('error-list');
-
-            // Clear previous error messages
-            var errorElements = document.getElementsByClassName("error-message");
-            while (errorElements.length > 0) {
-                errorElements[0].parentNode.removeChild(errorElements[0]);
-            }
-            var inputs = document.getElementsByClassName("error");
-            while (inputs.length > 0) {
-                inputs[0].classList.remove("error");
-            }
-
-            // Validation checks
-            if (!brand) {
-                displayError(document.querySelector('.radio-group'), "Brand is required");
-                isValid = false;
-            }
-            if (bname.value.trim() === "") {
-                displayError(bname, "Bike Name is required");
-                isValid = false;
-            }
-            if (!btype) {
-                displayError(document.querySelector('.btype'), "Bike Type is required");
-                isValid = false;
-            }
-            if (enginecc.value.trim() === "") {
-                displayError(enginecc, "Engine CC is required");
-                isValid = false;
-            }
-            if (price.value.trim() === "") {
-                displayError(price, "Price is required");
-                isValid = false;
-            }
-            if (image.value.trim() === "") {
-                displayError(image, "Image is required");
-                isValid = false;
-            }
-
-            return isValid;
-        }
-
-        function displayError(element, message) {
-            element.classList.add("error");
-            var errorMessage = document.createElement("div");
-            errorMessage.className = "error-message";
-            errorMessage.textContent = message;
-
-            // Insert error message after the input field
-            element.parentNode.insertBefore(errorMessage, element.nextSibling);
-        }
-    </script>-->
 </head>
 
 <body>

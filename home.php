@@ -31,7 +31,10 @@ $user_data = check_login($conn);
 <body>
     <?php
     include 'menu.php';
+    //include 'connection.php';
+    //echo $_SESSION['username'];
     ?>
+
 
     <div class="container">
         <div class="search">

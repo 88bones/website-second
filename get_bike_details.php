@@ -51,7 +51,10 @@ if ($selected_bike) {
 
 
     $bike_id = $bike_details['bikeid'];
-    $sql_reviews = "SELECT * FROM reviews WHERE bikeid = $bike_id";
+    $sql_reviews = "SELECT r.*, u.username
+                  FROM reviews r 
+                  JOIN users u 
+                  ON r.userid = u.userid WHERE r.bikeid = $bike_id";
     $result_reviews = $conn->query($sql_reviews);
 
     echo '<div class="reviews">';
@@ -59,8 +62,8 @@ if ($selected_bike) {
     if ($result_reviews->num_rows > 0) {
       while ($review = $result_reviews->fetch_assoc()) {
         echo '<div class="review">';
-        echo '<p><strong>Reviewer:</strong>' . ' ' . htmlspecialchars($review['dealer_name']) . '</p>';
-        echo '<p><strong>Rating:</strong> ' . ' ' . htmlspecialchars($review['rating']) . '/5</p>';
+        echo '<p><strong>Reviewer:</strong> ' . htmlspecialchars($review['username']) . '</p>';
+        echo '<p><strong>Rating:</strong> ' . htmlspecialchars($review['rating']) . '/5</p>';
         echo '<p>' . htmlspecialchars($review['review_text']) . '</p>';
         echo '</div><br>';
       }

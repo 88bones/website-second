@@ -1,21 +1,3 @@
-<?php
-include 'connection.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $bikeid = $_POST['bikeid'];
-    $dealer_name = $_POST['dealer_name'];
-    $review_text = $_POST['review_text'];
-    $rating = $_POST['rating'];
-
-    $sql = "INSERT INTO reviews (bikeid, dealer_name, review_text, rating) VALUES ('$bikeid', '$dealer_name', '$review_text', '$rating')";
-    if (mysqli_query($conn, $sql)) {
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-
-    mysqli_close($conn);
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php
-    include 'menu.php'; ?>
+    include 'menu.php';
+    include 'connection.php';
+
+    session_start();
+    $userid = $_SESSION['userid'];
+    $username = $_SESSION['username'];
+    ?>
     <div class="review-section">
         <h2>Dealer Reviews for Bikes</h2>
 
@@ -39,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <select id="bikeid" name="bikeid" required>
                     <option value="">Select a bike</option>
                     <?php
-                    include 'connection.php';
                     $sql = "SELECT bikeid, brand, bname FROM bikes";
                     $result = $conn->query($sql);
 
@@ -51,10 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ?>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="dealer-name">Reviewer Name:</label>
-                <input type="text" id="dealer-name" name="dealer_name" required>
-            </div>
+            <!-- Include hidden inputs for userid and username -->
+            <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+            <input type="hidden" name="username" value="<?php echo $username; ?>">
             <div class="form-group">
                 <label for="review-text">Review:</label>
                 <textarea id="review-text" name="review_text" rows="4" required></textarea>
@@ -71,6 +57,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit">Submit Review</button>
         </form>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $bikeid = $_POST['bikeid'];
+            $userid = $_POST['userid'];
+            $username = $_POST['username'];
+            $review_text = $_POST['review_text'];
+            $rating = $_POST['rating'];
+
+            $sql = "INSERT INTO reviews (bikeid, userid,review_text, rating) VALUES ('$bikeid', '$userid', '$review_text', '$rating')";
+            if (mysqli_query($conn, $sql)) {
+                echo "<p style='color: green;'>Review submitted successfully!</p>";
+            } else {
+                echo "<p style='color: red;'>Error: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
+            }
+
+            mysqli_close($conn);
+        }
+        ?>
 
         <!-- Display reviews -->
 

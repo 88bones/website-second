@@ -23,7 +23,8 @@
                 include 'connection.php';
                 if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
                     echo '<a href="admin-page.php">Admin</a>';
-                } ?>
+                }
+                ?>
             </div>
             <form action="">
                 <button class="login"><a href="logout.php">Logout</a></button>

@@ -2,7 +2,7 @@
 include 'connection.php';
 include 'menu.php';
 
-$search = isset($_GET['search-input']) ? $conn->real_escape_string($_GET['search-input']) : '';
+$search = isset($_GET['search-input']) ? ($_GET['search-input']) : '';
 
 $sql = "SELECT * FROM bikes WHERE bname LIKE '$search%'";
 $result = $conn->query($sql);
