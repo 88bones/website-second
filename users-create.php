@@ -94,19 +94,17 @@
         $role = $_POST['role'];
 
         // if(empty($name) || empty($username)) {
-            // header('location:users-create.php?message=Please fill your name and username');
+        // header('location:users-create.php?message=Please fill your name and username');
         // }
 
         $result = mysqli_query($conn, "INSERT INTO `users`(`name`, `username`, `email`, `password`,`role`) 
                 VALUES ('$name','$username','$email','$password','$role')");
 
-        if(!$result) {
-            die("Query Failed". mysqli_error($conn));
+        if (!$result) {
+            die("Query Failed" . mysqli_error($conn));
         } else {
             header('Location: users-create.php?insert_msg=Data has been added successfully.');
         }
-
-
     }
     ?>
 
@@ -117,7 +115,7 @@
     $row = mysqli_query($conn, $sql);
     echo '
                    <div class="data">
-                    <table border=0 px solid cellspacing=1>
+                    <table >
                     <tr>
                     <th>USER ID</th>
                     <th>Name</th>
@@ -125,13 +123,14 @@
                     <th>Email</th>
                     <th>Password</th>
                     <th>Role</th>
+                    <th colspan=2>Action</th>
 
                     </tr>
                     </div>
         ';
 
 
-while ($result = mysqli_fetch_assoc($row)) {
+    while ($result = mysqli_fetch_assoc($row)) {
         echo '<tr>
                             <td>' . $result['userid'] . '</td>
                             <td>' . $result['name'] . '</td>
@@ -140,7 +139,7 @@ while ($result = mysqli_fetch_assoc($row)) {
                             <td>' . $result['password'] . '</td>
                             <td>' . $result['role'] . '</td>
                             <td><a href="users-update-1.php?userid=' . $result['userid'] . '">Edit</a></td>
-                            <td><a href="users-delete-1.php?userid='. $result['userid']. '">Delete</a></td>
+                            <td><a href="users-delete-1.php?userid=' . $result['userid'] . '">Delete</a></td>
     </tr>';
 
         echo '<br>';

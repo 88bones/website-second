@@ -47,12 +47,6 @@ select {
     border: 1px solid hsl(246, 25%, 79%);
 }
 
-
-
-
-
-
-
 .data {
     justify-content: center;
     display: flex;
@@ -63,17 +57,21 @@ select {
 
 
 tr:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: #d6d6d6;
 }
 
 table {
     width: 100%;
+}
 
+th {
+    background-color: #4CAF50;
 }
 
 th,
 td {
     padding: 6px;
+    text-align: center;
 }
 
 td a {
