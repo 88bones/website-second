@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="add.css?v=<?php echo time(); ?>">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
+    <!--<script>
         function validateForm() {
             var brand = document.querySelector('input[name="brand"]:checked');
             var bname = document.querySelector('input[name="bname"]');
@@ -53,7 +53,7 @@
 
             return true; // Allow form submission
         }
-    </script>
+    </script>-->
 </head>
 
 <body>
@@ -156,10 +156,10 @@
 
                 // Insert bike data into the database
                 $result = mysqli_query($conn, "INSERT INTO bikes (brand, bname, btype, enginecc, price, image) VALUES ('$brand', '$bname', '$btype', '$cc', '$price', '$image')");
-                if ($result) {
+                if ($result == '') {
                     echo "Bike added successfully!";
                 } else {
-                    echo "Error:  ";
+                    echo "Error ";
                 }
             } else {
                 echo "Sorry, there was an error uploading your file.";

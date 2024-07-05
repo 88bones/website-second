@@ -39,7 +39,7 @@ $user_data = check_login($conn);
                 <p id="filter-tag">Search the right bike</p>
                 <div class="select-box">
 
-                    <input type="text" id="search-input" name="search-input" placeholder="eg: R15M, MT-15" />
+                    <input type="text" id="search-input" name="search-input" placeholder="eg: R15M, MT-15" required />
                     <button type="submit" id="search-filter">Search</button>
             </form>
         </div>
@@ -61,6 +61,7 @@ $user_data = check_login($conn);
             </ul>
         </div>
     </div>
+
 
 
 </body>
