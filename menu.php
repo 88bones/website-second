@@ -19,6 +19,11 @@
                 <a href="calculation.php">Calculate</a>
                 <a href="bike-review.php">Reviews</a>
                 <!--<a href="admin-page.php">Admin</a>-->
+                <?php
+                include 'connection.php';
+                if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
+                    echo '<a href="admin-page.php">Admin</a>';
+                } ?>
             </div>
             <form action="">
                 <button class="login"><a href="logout.php">Logout</a></button>

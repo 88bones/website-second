@@ -5,6 +5,7 @@
     background-color: #f8f8f8;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .review-section h2,
@@ -46,26 +47,4 @@
 
 #review-form button:hover {
     background-color: #429945;
-}
-
-/* Review display styling */
-.reviews {
-    margin-top: 30px;
-}
-
-.review {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.review p {
-    margin: 5px 0;
-}
-
-.review strong {
-    font-weight: bold;
-    color: #333;
 }

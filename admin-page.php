@@ -34,6 +34,9 @@ if ($_SESSION['role'] != 'admin') {
             <li><a href="add.php"><img src="/website-second/images/function-img/motorbike.png" width="50px" height="50px" alt=""></a>
                 <p>Bikes</p>
             </li>
+            <li><a href="bike-review-display.php"><img src="/website-second/images/function-img/review.png" width="50px" height="50px"></a>
+                <p>Reviews</p>
+            </li>
         </ul>
     </div>
     </div>

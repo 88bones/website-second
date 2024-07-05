@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Users</title>
     <link rel="stylesheet" href="users-create.css?v=<?php echo time(); ?>">
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var role = document.getElementById("role").value;
+
+            if (name == "" || username == "" || email == "" || password == "" || role == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            if (role == "") {
+                alert("Please select a role");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 
 <body>
@@ -13,36 +41,36 @@
     include 'menu.php';
     ?>
     <div class="addusers">
-    
-        <form action="" method="POST" enctype="multipart/form-data">
-        
+
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+
             <div class="users-body">
                 <label for="name">Name</label><br>
-                <input type="text" name="name" class="">
+                <input type="text" id="name" name="name" class="">
             </div>
 
             <div class="users-body">
                 <label for="username">Username</label><br>
-                <input type="text" name="username" class="">
+                <input type="text" id="username" name="username" class="">
             </div>
 
             <div class="users-body">
                 <label for="email">Email</label><br>
-                <input type="email" name="email" class="">
+                <input type="email" id="email" name="email" class="">
             </div>
 
             <div class="users-body">
                 <label for="password">Password</label><br>
-                <input type="text" name="password" class="">
+                <input type="text" id="password" name="password" class="">
             </div>
 
             <div class="users-body">
                 <label>Select Role</label><br>
-                <select name="role" id="" class="">
+                <select name="role" id="role" class="">
                     <option value="">Select Role</option>
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
-                </select><br><br> 
+                </select><br><br>
             </div>
 
             <div class="sb-btm">
@@ -97,7 +125,7 @@
                     <th>Email</th>
                     <th>Password</th>
                     <th>Role</th>
-                    
+
                     </tr>
                     </div>
         ';
