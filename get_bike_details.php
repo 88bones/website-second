@@ -35,7 +35,7 @@ if ($selected_bike) {
         </tr>
         <tr>
           <th>Type</th>
-          <td>' . $bike_details['btype'] . '</td>
+          <td>' . $bike_details['btype'] . '</td> 
         </tr>
         <th>Engine</th>
         <td>' . $bike_details['enginecc'] . '</td>
