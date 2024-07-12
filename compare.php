@@ -12,6 +12,8 @@
 
 <body>
     <?php
+
+    session_start();
     include 'menu.php';
     ?>
     <div class="compare-bigg-box">

@@ -1,5 +1,4 @@
 <?php
-//start the session
 session_start();
 
 include 'connection.php';
@@ -7,11 +6,6 @@ include 'functions.php';
 
 $user_data = check_login($conn);
 
-
-//both works to redirect the user to the login page if the user is not logged in
-// if(!isset($_SESSION["user"])) {
-//     header("Location: signin-new.php");
-// }
 ?>
 
 
@@ -29,10 +23,9 @@ $user_data = check_login($conn);
 </head>
 
 <body>
+
     <?php
     include 'menu.php';
-    //include 'connection.php';
-    //echo $_SESSION['username'];
     ?>
 
 

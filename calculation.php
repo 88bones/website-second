@@ -9,6 +9,8 @@
 
 <body>
     <?php
+
+    session_start();
     include 'menu.php';
     ?>
     <div class="container">

@@ -27,11 +27,16 @@
                 ?>
             </div>
             <form action="">
+                <?php
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo "<span class='username'> $username |</span>";
+                } ?>
                 <button class="login"><a href="logout.php">Logout</a></button>
             </form>
         </div>
     </div>
-    </div>
+
 </body>
 
 </html>
