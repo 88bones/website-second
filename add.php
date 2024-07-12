@@ -90,7 +90,7 @@
         } else {
             // Image upload handling
             $target_dir = "uploads/";
-            $target_file = $target_dir . ($_FILES["image"]["name"]);
+            $target_file = $target_dir . basename($_FILES["image"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -127,7 +127,7 @@
                 // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                    echo "The file " . (($_FILES["image"]["name"])) . " has been uploaded." . " ";
+                    echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
                     $image = $target_file;
 
                     // Insert bike data into the database
@@ -135,7 +135,7 @@
                     if ($result) {
                         echo "Bike added successfully!";
                     } else {
-                        echo "Error ";
+                        echo "Error: " . mysqli_error($conn);
                     }
                 } else {
                     echo "Sorry, there was an error uploading your file.";
@@ -147,12 +147,11 @@
 
     <!--list of bikes-->
     <?php
-    include 'connection.php';
     $sql = "SELECT * FROM bikes";
     $row = mysqli_query($conn, $sql);
     echo '
                <div class="data">
-                <table border=0 px solid cellspacing=1>
+                <table border="0" cellspacing="1">
                 <tr>
                 <th>BIKE ID</th>
                 <th>Name</th>
@@ -161,7 +160,7 @@
                 <th>Displacement</th>
                 <th>Price</th>
                 <th>Image</th>
-                <th colspan=2>Actions</th>
+                <th colspan="2">Actions</th>
                 
                 </tr>
                 </div>
@@ -176,16 +175,14 @@
                         <td>' . $result['price'] . '</td>';
 
         if (!empty($result['image'])) {
-            echo '<td><img src="' . $result['image'] . '"height="60" width="100"></td>';
+            echo '<td><img src="' . $result['image'] . '" height="60" width="100"></td>';
         } else {
             echo '<td>No image</td>';
-        };
-
+        }
 
         echo '<td><a href="update-bike.php?bikeid=' . $result['bikeid'] . '">Edit</a></td>
                         <td><a href="delete-bike.php?bikeid=' . $result['bikeid'] . '">Delete</a></td>
-
-</tr>';
+                    </tr>';
     }
     ?>
 </body>
