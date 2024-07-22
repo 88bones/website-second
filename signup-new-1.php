@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($name) && !empty($username) && !is_numeric($username) && !empty($email) && !empty($password) && !empty($confirm_password) && ($password == $confirm_password)) {
 
         //save to database
-        $sql = "INSERT INTO `users`(`name`, `username`, `email`, `password`) VALUES('$name', '$username','$email', '$password')";
+        $sql = "INSERT INTO `users`(`name`, `username`, `email`, `password`,`role`) VALUES('$name', '$username','$email', '$password','user')";
         mysqli_query($conn, $sql);
         header('Location: signin-new.php');
         die;
@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             const nameRegex = /^[a-zA-Z ]+$/;
             const userNameRegex = /^[a-zA-Z0-9_]+$/;
             const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-           // const phoneRegex = /^\d{10}$/;
+            // const phoneRegex = /^\d{10}$/;
             const emailRegex = /^[^\s@]+@[^s@]+\.[^/s@]+$/;
 
             const name = document.getElementById('name').value;
